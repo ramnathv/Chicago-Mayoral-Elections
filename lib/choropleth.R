@@ -1,6 +1,14 @@
-choropleth <- function(.poly, id1, .df = .poly@data, id2 = id1, 
-	 field, .title    = "", .legtitle = "Values", .ggplot = TRUE, 
-   colpal = 'PuRd', ...){
+choropleth <- function(
+	.poly,                  # shape file for plot
+	id1,                    # id variables for shape file
+	.df      = .poly@data,  # data frame with data to plot
+	id2      = id1,         # id variables for data frame 
+	field,                  # fields in data frame to plot
+   .title    = "",          # title of plot
+   .legtitle = "Values",    # title of legend
+   .ggplot   = TRUE,        # use ggplot or spplot
+    colpal   = 'PuRd',      # colour palette to use
+    ...){                   # arguments to pass to classIntervals
                             
      # load required libraries
      library(maptools); library(spatial); library(RColorBrewer);
