@@ -1,0 +1,433 @@
+M[match(V$V1, M$M2),]
+system.time(M[match(V$V1, M$M2),])
+library(rbenchmark)
+f1 = function() M[match(V$V1, M$M2),]
+f2 = function() merge(V, M, by.x='V1', by.y='M2', sort=F)
+benchmark(f1(), f2(), replications = 100)
+benchmark(f1(), f2(), replications = 1000)
+M[,match(V$V1, M$M2)]
+M[match(V$V1, M$M2),]
+V1
+V
+f_ramnath = function() M[,match(V$V1, M$M2)]#
+f_aix = function() merge(V, M, by.x='V1', by.y='M2', sort=F)#
+#
+benchmark(f_ramnath(), f_aix(), replications = 1000)
+f_ramnath = function() M[match(V$V1, M$M2),]#
+f_aix = function() merge(V, M, by.x='V1', by.y='M2', sort=F)#
+#
+benchmark(f_ramnath(), f_aix(), replications = 1000)
+f_chase = function() M$M1[M$M2 %in% V$V1]
+f_chase()
+f_ramnath = function() M[match(V$V1, M$M2),]#
+f_aix = function() merge(V, M, by.x='V1', by.y='M2', sort=F)#
+#
+benchmark(f_ramnath(), f_aix(), f_chase(), replications = 1000)
+f_chase = function() M[M$M2 %in% V$V1,]
+f_chase()
+f_ramnath = function() M[match(V$V1, M$M2),]#
+f_aix = function() merge(V, M, by.x='V1', by.y='M2', sort=F)#
+#
+benchmark(f_ramnath(), f_aix(), f_chase(), replications = 1000)
+f_ramnath = function() M[match(V$V1, M$M2),]#
+f_aix = function() merge(V, M, by.x='V1', by.y='M2', sort=F)#
+#
+benchmark(f_ramnath(), f_aix(), f_chase(), replications = 10000)
+? match
+f4_ramnath = function() M[match(V$V1, M$M2, nomatch = 0),]
+f_ramnath = function() M[match(V$V1, M$M2),]#
+f_aix = function() merge(V, M, by.x='V1', by.y='M2', sort=F)#
+#
+benchmark(f_ramnath(), f_aix(), f_chase(), f4_ramnath(), replications = 10000)
+f_ramnath = function() M[match(V$V1, M$M2),]#
+f_aix = function() merge(V, M, by.x='V1', by.y='M2', sort=F)#
+#
+benchmark(f_ramnath(), f_aix(), f_chase(), f4_ramnath(), replications = 1000)
+M <- data.frame(M1 = sample(1:20, 15, FALSE), M2 = sample(1:20, 15, FALSE))
+V <- data.frame(V1 = sample(1:20, 10, FALSE))
+M <- data.frame(M1 = sample(1:20, 15, FALSE), M2 = sample(1:20, 15, FALSE))
+f_ramnath = function() M[match(V$V1, M$M2),]#
+f_aix = function() merge(V, M, by.x='V1', by.y='M2', sort=F)#
+#
+benchmark(f_ramnath(), f_aix(), f_chase(), f4_ramnath(), replications = 1000)
+M
+V
+f_ramnath = function() M[match(V$V1, M$M2),]#
+f_aix = function() merge(V, M, by.x='V1', by.y='M2', sort=F)#
+#
+benchmark(f_ramnath(), f_aix(), f_chase(), f4_ramnath(), replications = 1000)
+f_chase
+f_ramnath = function() M[match(V$V1, M$M2),]#
+f_aix = function() merge(V, M, by.x='V1', by.y='M2', sort=F)#
+#
+benchmark(f_ramnath(), f_aix(), f_chase(), f4_ramnath(), replications = 1000)
+M
+V
+genes <- matrix(c("chr1","chr2","chr2","chr2","chr2","chr2",#
+              "uc001upw.2","uc001upw.2","uc001upw.2","uc001upx.1","uc001upy.1","uc001upz.1",#
+              "188001308","188001308","188001308","188037202","188037202","188037202",#
+              "188021266","188021266","188021266","188086618","188127464","188127464",#
+              "-","-","-","-","-","-",#
+              "CARCRL","CALCRL","CALCRL","TFPI","TFPI","TFPI", #
+              "uc001upx.1","uc00upy.1","uc001upz.1","uc001upw.2","uc001upw.2","uc001upw.2",#
+              "188037202","188037202","188037202","188001308","188001308","188001308",#
+              "188086618","188127464","188127464","188021266","188021266","188021266",#
+              "-","-","-","-","-","-",#
+              "TFPI","TFPI","TFPI","CALCRL","CALCRL","CALCRL",#
+              "35894","35894","35894","35894","35894","35894"), nrow=6)#
+#
+colnames(genes)<- c("chr","names.x","start.x","stop.x","strand.x","alias.x","name.y","start.y","stop.y","strand.y", "alias.y", "distance_startsite")#
+genes<-as.data.frame(genes)
+genes
+genes[!duplicated(t(apply(genes[,c('names.x','name.y')],1,sort))),]
+update.packages()
+library(RCurl)
+library(XML)
+library(XML)#
+eval(parse(text=gsub('\r\n','\n',xpathApply(htmlTreeParse('http://pastebin.com/CDzYXNbG',useInternal=T),'//textarea',xmlValue))))
+h = xpathApply(htmlTreeParse('http://pastebin.com/CDzYXNbG',useInternal=T),'//textarea',xmlValue))
+h = xpathApply(htmlTreeParse('http://pastebin.com/CDzYXNbG',useInternal=T),'//textarea',xmlValue)
+h
+h = xpathApply(htmlTreeParse('http://pastebin.com/CDzYXNbG',useInternal=T),'//div/textarea',xmlValue)
+h
+h = xpathApply(htmlTreeParse('http://pastebin.com/raw.php?i=CDzYXNbG',useInternal=T),'//div/textarea',xmlValue)
+h
+h = readLines('http://pastebin.com/raw.php?i=CDzYXNbG')
+h
+? readLines
+update.packages()
+library(classIntervals)
+library(classInt)
+> anim <- c(1,2,3,4,5,6,7,8,9,10,11,12,13,14,15); wt <- c(181,179,180.5,201,201.5,245,246.4,189.3,301,354,369,205,199,394,231.3); das <- data.frame(anim,wt)
+> anim = c(1,2,3,4,5,6,7,8,9,10,11,12,13,14,15); wt = c(181,179,180.5,201,201.5,245,246.4,189.3,301,354,369,205,199,394,231.3); das = data.frame(anim,wt)
+anim = c(1,2,3,4,5,6,7,8,9,10,11,12,13,14,15); wt = c(181,179,180.5,201,201.5,245,246.4,189.3,301,354,369,205,199,394,231.3); das = data.frame(anim,wt)
+das
+das$wt2 = findIntervals(das$wt, n = 3, style = 'equal')
+das$wt2 = findInterval(das$wt, n = 3, style = 'equal')
+? findInterval
+? classInt
+library(help = 'classInt')
+? classIntervals
+das$wt2 = classIntervals(das$wt, n = 3, style = 'equal')
+classIntervals(das$wt, n = 3, style = 'equal')
+library(help = 'classInt')
+h = classIntervals(das$wt, n = 3, style = 'equal')
+str(h)
+classIntervals2shingle(das$wt)
+? classIntervals2shingle
+update.packages()
+callsInternalCode <- function(fn)#
+{#
+if(!require(stringr)) stop("stringr package required")#
+any(str_detect(capture.output(body(fn)), ".Internal"))#
+}
+funs <- Filter(is.function, sapply(ls(baseenv()), get, baseenv()))
+names(funs)[sapply(funs, callsInternalCode)]
+col.max
+? col.max
+? max.col
+? maxCol
+update.packages()
+library(XML);#
+#
+url = 'http://espn.go.com/nba/teams'#
+#
+# parse url into html tree#
+doc  = htmlTreeParse(url, useInternalNodes = T);
+xmlSApply(doc[[1]], xmlValue)
+xmlSApply(doc[1], xmlValue)
+doc[1]
+doc[[1]]
+nodes = getNodeSet(doc, "//h5/a[@href]");
+nodes[[1]]
+nodes[[2]]
+node1 = nodes[[1]]
+nod1
+node1
+xmlName(node1)
+xmlSize(node1)
+xmlSize(nods)
+xmlSize(nodes)
+xmlAttrs(nodes)
+xmlAttrs(node1)
+names(xmlAttrs(node1))
+.file = '~/Desktop/R Projects/Walmart Growth/walmarts.xml'
+doc     = xmlTreeParse(.file, useInternalNodes = T);
+class(doc)
+docroot = xmlRoot(doc)
+docroot[[1]]
+xmlName(docroot[[1]])
+xmlChildren(docroot[[1]])
+names(xmlChildren(docroot[[1]]))
+names(docroot[[1]])
+table(xmlApply(docroot, names))
+table(unlist(xmlApply(docroot, names)))
+xmlValNode = function(x) xmlSApply(x, xmlValue)
+xmlValNode(docroot[[1]])
+class(xmlValNode(docroot[[1]]))
+docroot[[1]]
+xmlSApply(docroot[[1]], xmlName)
+url1 = "http://en.wikipedia.org/wiki/Brazil_national_football_team_competitive_record"#
+#
+# METHOD 1: Use ReadHTMLTable#
+#
+method1 = function(){#
+  tables  = readHTMLTable(getURL(url1), asText = T);#
+  tab.ind = which.max(sapply(tables, nrow)); #
+  tab     = tables[[tab.ind]];#
+}#
+#
+# METHOD 2: Use getNodeSet and readHTMLTable#
+#
+method2 = function(){#
+  doc   = htmlTreeParse(url1, useInternalNodes = T);#
+  pat   = "//table[@class='wikitable sortable']"#
+  node  = getNodeSet(doc, pat);#
+  tab2  = lapply(node, readHTMLTable)[[1]];#
+}#
+#
+# METHOD 3: Use xpathApply#
+#
+method3 = function(){#
+  doc   = htmlTreeParse(url1, useInternalNodes = T);#
+  pat   = "//table[@class='wikitable sortable']"#
+  tab3  = xpathApply(doc, pat, readHTMLTable)[[1]];#
+}
+library(rbenchmark)#
+timings = benchmark(method1(), method2(), method3(), replications = 5);
+? readHTMLTable
+method1()
+method2()
+? getURL
+library(XML)#
+library(RCurl)
+library(rbenchmark)#
+timings = benchmark(method1(), method2(), method3(), replications = 5);
+method1 = function(){#
+  tables  = readHTMLTable(url1, asText = T);#
+  tab.ind = which.max(sapply(tables, nrow)); #
+  tab     = tables[[tab.ind]];#
+}#
+#
+# METHOD 2: Use getNodeSet and readHTMLTable#
+#
+method2 = function(){#
+  doc   = htmlTreeParse(url1, useInternalNodes = T);#
+  pat   = "//table[@class='wikitable sortable']"#
+  node  = getNodeSet(doc, pat);#
+  tab2  = lapply(node, readHTMLTable)[[1]];#
+}#
+#
+# METHOD 3: Use xpathApply#
+#
+method3 = function(){#
+  doc   = htmlTreeParse(url1, useInternalNodes = T);#
+  pat   = "//table[@class='wikitable sortable']"#
+  tab3  = xpathApply(doc, pat, readHTMLTable)[[1]];#
+}
+library(rbenchmark)#
+timings = benchmark(method1(), method2(), method3(), replications = 5);
+method2()
+url = 'http://en.wikipedia.org/wiki/Brazil_national_football_team_competitive_record'
+h = readHTMLTable(url)
+tidyHTML = function(.url){#
+  require(RCurl)#
+  w3.org = "http://services.w3.org/tidy/tidy"#
+ .url    = paste(w3.org, sep = "",#
+            "?docAddr=", URLencode(.url, reserved = T),#
+            "&indent=on", #
+            "&forceXML=on")#
+  return(.url)#
+}
+h = readHTMLTable(tidyHTML(url))
+sapply(h, length)
+h
+class(h)
+require(XML)#
+doc   = xmlParse('http://s3.spotcrime.com/cache/rss/newark.xml')#
+#
+nodes = getNodeSet(doc, "//item")#
+src   = ldply(nodes, function(node) xmlSApply(node, xmlValue))
+mydata <- data.frame(cbind(c("xyz","ab","yabc",NA)),c("xyz","xyz","yabc","ab")),c("ab","ab",NA,"yabc")))#
+Coor   <- data.frame(cbind( c("ab","xyz","yabc"),c(31.34,42.15,36.98),c(12.87,13.67,18.56)))
+mydata <- data.frame(cbind(c("xyz","ab","yabc",NA)),c("xyz","xyz","yabc","ab")),c("ab","ab",NA,"yabc")));#
+Coor   <- data.frame(cbind( c("ab","xyz","yabc"),c(31.34,42.15,36.98),c(12.87,13.67,18.56)))
+mydata <- data.frame(cbind(c("xyz","ab","yabc",NA)),c("xyz","xyz","yabc","ab")),c("ab","ab",NA,"yabc")))
+mydata = data.frame(cbind(c("xyz","ab","yabc",NA)),c("xyz","xyz","yabc","ab")),c("ab","ab",NA,"yabc")))
+update.packages()
+raw <- data.frame(WorkerId=c(1,1,1,1,2,2,2,2,3,3,3,3),#
+              Iteration = c(1,2,3,4,1,2,3,4,1,2,3,4))
+raw
+dlply(raw, .(WorkerId))
+library(plyr)
+dlply(raw, .(WorkerId))
+lapply( split(raw, raw$WorkerId), function(x) x[-NROW(x),] )
+dlply(raw, .(WorkerId), function(x) x[-NROW(x),])
+dlply(raw, .(WorkerId), function(df) df[-NROW(df),])
+raw
+cast(raw, WorkerId ~ Iteration)
+library(reshape)
+cast(raw, WorkerId ~ Iteration)
+ddply(raw, .(WorkerId), summarize, function(df) df[-NROW(df),])
+ddply(raw, .(WorkerId), function(df) df[-NROW(df),])
+update.packages()
+set.seed(1)#
+tdata <- data.frame(a1=rnorm(100, mean=5, sd=2), a2=rep(0:1, length.out=100))#
+tall <- sapply(1:9, function(x) {#
+  d <- split(tdata, tdata$a1 <= x)#
+  sapply(d, function (y) {#
+    1 - max(table(y$a2)/nrow(y))#
+  })#
+})
+tdata
+tall
+tdata
+d1 = split(tdata, tdata$a1 <= 2)
+d1
+table(d2$a2)
+table(d2$`TRUE`a2)
+table(d2$`TRUE`$a2)
+table(d1$`TRUE`$a2)
+tall
+1 - max(table(d1$`FALSE`$a2)/nrow(d2))
+1 - max(table(d1$`FALSE`$a2)/nrow(d1))
+max(table(d1$`FALSE`$a2)
+)
+table(d1$`FALSE`$a2)
+max(table(d1$`FALSE`$a2))/nrow(d1)
+nrow(d1)
+d1
+max(table(d1$`FALSE`$a2))/nrow(d1$`FALSE`)
+1 - max(table(d1$`FALSE`$a2))/nrow(d1$`FALSE`)
+tdata2 = cbind(tdata, 1:9)
+tdata2 = cbind(tdata, c(1:9))
+tdata2 = c(tdata, 1:9)
+tdata2
+tdata2 = data.frame(tdata, 1:9)
+tdata
+setwd('/Users/ramnathvaidyanathan/Desktop/R Projects/World Food')
+library(ggplot2);#
+library(maps);#
+library(maptools);#
+library(RColorBrewer);#
+library(Cairo);#
+library(cluster);#
+gpclibPermit();#
+#
+# DOWNLOAD FILE FROM GOOGLE DOCUMENTS#
+#
+# url = "http://spreadsheets.google.com/pub?key=tdzqfp-_ypDqUNYnJEq8sgg&single=true&gid=0&output=csv"#
+# download.file(data.url, destfile = 'diet.csv');#
+#
+diet	 = read.csv('diet.csv', header = T);#
+#
+#
+# PLOT DISTRIBUTION OF DIFFERENT FOODS#
+#
+plotDensities = function(df, name, color){#
+	#
+	cnum      = which(df$Countries == name);#
+	cols	    = c(1, 4:52);#
+	mdiet	   = melt(df[, cols], id = 'Countries', variable_name = 'var');#
+	mdiet$var = with(mdiet, sub("..kcal.day", "", var));#
+	us 		   = data.frame(value    = unlist(df[cnum, cols]), #
+						   variable = unique(mdiet$variable));#
+					#
+	plot1 = ggplot(mdiet, aes(value)) +#
+		 geom_density() +#
+		 geom_vline(data = us, aes(xintercept = value), color = color) +#
+		 facet_wrap(~variable, scale = 'free') +#
+		 xlab('') +#
+		 opts(tile = name)#
+}#
+#
+plotDensities(diet, "United States of America", 'blue');
+head(diet)
+df = diet
+name = 'United States of America'
+color = 'blue'
+cnum      = which(df$Countries == name);
+cnum
+	cols	    = c(1, 4:52);
+cols
+	mdiet	   = melt(df[, cols], id = 'Countries', variable_name = 'var');
+head(mdiet)
+	mdiet$var = with(mdiet, sub("..kcal.day", "", var));
+head(mdiet)
+us 		   = data.frame(value    = unlist(df[cnum, cols]), #
+						   variable = unique(mdiet$variable));
+ggplot(mdiet, aes(value)) +#
+		 geom_density()
+ggplot(mdiet, aes(value)) +#
+		 geom_density() + facet_wrap(~var, scale = 'free')
+setwd('/Users/ramnathvaidyanathan/Desktop/R Projects/House Prices')
+spcsi = read.csv('SPCSI.csv', skip = 1, stringsAsFactors = F);
+setwd('/Users/ramnathvaidyanathan/Desktop/R Projects/House Prices')
+head(spcsi)
+setwd('/Users/ramnathvaidyanathan/Desktop/R Projects/House Prices')
+names(spcsi)[1] = 'date';
+setwd('/Users/ramnathvaidyanathan/Desktop/R Projects/House Prices')
+names(spcsi) = tolower(names(spcsi));#
+#
+#
+# delete the composite measures#
+spcsi$csxr 	  = NULL;#
+spcsi$spcs20r  = NULL;
+setwd('/Users/ramnathvaidyanathan/Desktop/R Projects/House Prices')
+spcsi.m = melt(spcsi, id = 'date', variable_name = 'abbr', na.rm = T);
+setwd('/Users/ramnathvaidyanathan/Desktop/R Projects/House Prices')
+spcsi_m = melt(spcsi, id = 'date', variable_name = 'abbr', na.rm = T);
+head(spcsi_m)
+? melt
+setwd('/Users/ramnathvaidyanathan/Desktop/R Projects/House Prices')
+# locate the value column and rename it to 'spcsi'#
+valcol = which(names(spcsi_m) == "value");#
+names(spcsi_m)[valcol] = 'spcsi';
+setwd('/Users/ramnathvaidyanathan/Desktop/R Projects/House Prices')
+spcsi_m$date = paste("15", spcsi_m$date, sep = " ");#
+spcsi_m$date = with(spcsi_m, as.Date(date, "%d %B %Y"));
+setwd('/Users/ramnathvaidyanathan/Desktop/R Projects/House Prices')
+qplot(date, spcsi, data = spcsi_m, geom = 'line', colour = abbr);
+setwd('/Users/ramnathvaidyanathan/Desktop/R Projects/House Prices')
+abbr      = read.csv('abbr-lookup.csv');#
+abbr$abbr = tolower(abbr$abbr)
+source('lib/utilities.R')
+source('lib/merge_poly_df_v2.R')
+soure('lib/find_fill_breaks.R')
+source('lib/find_fill_breaks.R')
+source('lib/choropleth.R')
+setwd('/Users/ramnathvaidyanathan/Desktop/R Projects/Chicago Mayoral Elections/2_code')
+london <- readShapeSpatial('1_data/london/maps/london_sport.shp');
+dir()
+london <- readShapeSpatial('1_data/london/maps/london_sport.shp');
+choro1_gg = choropleth(.poly = london, #
+  id1 = 'name', field = 'Partic_Per',#
+  .title    = 'London Sport Participation',#
+  .legtitle = 'Partic_Per', .ggplot = T,#
+  colpal   = 'Blues', style = 'fixed',#
+  fixedBreaks   = seq(0, 30, by = 5)) +#
+  opts(legend.position = c(0.85, 0.25));
+choro1_gg
+? arrange
+source('~/Desktop/R Projects/Chicago Mayoral Elections/lib/utilities.R')
+base_dir = '~/Desktop/R Projects/Chicago Mayoral Elections/'
+file.path
+? file.path
+file.path(base_dir, 'lib/utilities.R')
+base_dir = '~/Desktop/R Projects/Chicago Mayoral Elections/'#
+source(file.path(base_dir, 'lib/utilities.R'))
+dir()
+dir('1_data')
+dir('1_data/london')
+dir('1_data/london/maps')
+readShapeZip
+london = readShapeSpatial(base_dir, '1_data/london/maps/london_sport.shp'))
+london = readShapeSpatial(base_dir, '1_data/london/maps/london_sport.shp')
+london = readShapeSpatial(file.path(base_dir, '1_data/london/maps/london_sport.shp'))
+dir('1_data')
+dir('1_data/london')
+dir('1_data/london/maps')
+options(prompt = " ", continue = " ");#
+# source('http://dl.dropbox.com/u/1161356/utilities.R');#
+base_dir = '~/Desktop/R Projects/Chicago Mayoral Elections/'#
+source(file.path(base_dir, 'lib/utilities.R'))

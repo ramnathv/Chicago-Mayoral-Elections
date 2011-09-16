@@ -4,11 +4,11 @@ choropleth <- function(
 	.df      = .poly@data,  # data frame with data to plot
 	id2      = id1,         # id variables for data frame 
 	field,                  # fields in data frame to plot
-   .title    = "",          # title of plot
-   .legtitle = "Values",    # title of legend
-   .ggplot   = TRUE,        # use ggplot or spplot
-    colpal   = 'PuRd',      # colour palette to use
-    ...){                   # arguments to pass to classIntervals
+ .title    = "",          # title of plot
+ .legtitle = "Values",    # title of legend
+ .ggplot   = TRUE,        # use ggplot or spplot
+  colpal   = 'PuRd',      # colour palette to use
+    ...){                 # arguments to pass to classIntervals
                             
      # load required libraries
      library(maptools); library(spatial); library(RColorBrewer);

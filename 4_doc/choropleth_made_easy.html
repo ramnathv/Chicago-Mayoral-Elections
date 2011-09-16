@@ -1,0 +1,72 @@
+Choropleth Maps are very useful to visualize spatial trends. There have been several blog posts
+providing detailed instructions on how to create a choropleth map in R using map, spplot and
+ggplot2. However, I believe that the process of creating a choropleth should be even simpler given
+the power of R. Hence I set out to create a generic function to plot choropleths. 
+
+I think it would be useful to share my design principles before I step on to my code. In my mind, it should be possible to quickly draw a choropleth map by specifying the following inputs:
+
+1. poly     => shapefile containing the map
+2. df       => data file containing the info 
+3. id1, id2 => names to merge poly and df
+4. field    => value variables to plot
+4. colpal   => color palette
+5. ...      => inputs to create data bins
+
+Let us consider a simple example to illustrate this principle. I am going to use the recent choropleth
+maps created in the Offensive Politics blog to visualize the Chicago Mayoral Elections.
+
+# STEP 1: Load Map Data (Source: http://goo.gl/bCUEF)
+source('lib/utilities.R');
+shpfile = '1_data/maps/Precincts.shp';
+poly    = readShapeSpatial(shpfile);
+
+# STEP 2: Load Election Results Data (Source: http://goo.gl/HYwdV)
+df = read.csv('1_data/precincts.csv');
+df        = df[,-grep('count', names(df))];         
+names(df) = sub('_pct', '', names(df));
+
+# STEP 3: Figure out ID to Match Map with Data
+
+id1 = list('WARD', 'PRECINCT')
+id2 = list('ward', 'precinct')
+
+# STEP 4: Figure out Values to Plot
+# Let us assume that we wish to visualize the vote pct for Rahm Emanuel.
+field = 'emanuel'
+
+# STEP 5: Plot the Choropleth Map
+# This should be enough information to create a choropleth map.
+
+choro1 = plotChoropleth6(.poly  = chicago, id1 = list('WARD', 'PRECINCT'), field = 'emanuel',
+                         .df    = df,      id2 = list('ward', 'precinct'),
+                          colpal = 'Blues', n = 5, style = 'equal');
+
+The plotChoropleth6 function essentially takes the grunt work out of constructing a choropleth map  once Steps 1 through 4 have been carried out. Let me now show you what else this function can do. Suppose, we want to visualize vote pcts of both Rahm Emanuel and Gery Chico. In this case, we have
+
+field = c('emanuel', 'chico');
+choro2 = plotChoropleth6(.poly  = chicago, id1 = list('WARD', 'PRECINCT'), field = 'emanuel',
+                         .df    = df,      id2 = list('ward', 'precinct'),
+                          colpal = 'Blues', n = 5, style = 'equal');
+
+So this function automatically creates facets when it is asked to plot more than two value variables. The flexibility does not end here. Let us suppose, we want to visualize the pct of votes secured by the winner of each precinct. Such a plot was created by the Chicago Tribune (Source: http://goo.gl/ve65F). In this plot the palette used for each candidate is different. Let us see how we can create this plot, by doing some additional processing on the election results data.
+
+## Process Election Results Data
+
+# find winner and  pct of votes secured for each precinct.
+candidates = names(df)[4:9];                                
+df$winner  = candidates[apply(df[, candidates], 1, which.max)];    
+df$winpct  = apply(df[, candidates], 1, max);
+
+# assign palettes to winners, bin pct votes and choose color based on bin and palette
+df$colpal  = sapply(df$winner, switch, 'braun' = 'PuRd', 'chico' = 'Greens',
+                    'delvalle' = 'Oranges', 'emanuel'  = 'Purples');
+df$bins    = cut(df$winpct, c(0, 50, 75, 100), labels = F, include.lowest = T);  
+df         = adply(df, 1, transform, 
+                fillcol = brewer.pal(5, colpal)[bins + 2]);
+                
+choro3 = plotChoropleth6(.poly = chicago, id1 = list('WARD', 'PRECINCT'), 
+                     .df   = df,      id2 = list('ward', 'precinct'), 
+                     fill  = 'fillcol');
+
+
+

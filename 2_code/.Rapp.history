@@ -1,0 +1,795 @@
+? brewer.pal
+library(Rcolorbrewer)
+library(RcolorBrewer)
+library(RColorBrewer)
+? brewer.pal
+qplot(cut, data=diamonds, geom="bar",fill=color)
+df <- read.csv("http://pealco.net/code/ggplot_dodge/df.txt")#
+ggplot(df, aes(gram, V1, fill=number))#
+    + geom_bar(stat="identity", position="dodge")
+df <- read.csv("http://pealco.net/code/ggplot_dodge/df.txt"); ggplot(df, aes(gram, V1, fill=number))#
+    + geom_bar(stat="identity", position="dodge")
+data(tips)
+head(tips)
+tips$fillcol = 'red'
+subset(tips, sex == 'Female')$fillcol = 'green'
+tips[,tips$sex == female]
+tips[tips$sex == 'Female',]
+tips[tips$sex == 'Female',]$fillcol = 'green'
+head(tips)
+qplot(total_bill, tip, data = tips, geom = 'blank') + geom_point(aes(colour = fillcol)) + scale_colour_identity()
+tips$fillcol2 = as.factor(tips$fillcol)
+head(tips)
+str(tips)
+levels(tips$fillcol2)
+levels(tips$fillcol2) = c('red', 'green')
+levels(tips$fillcol2)
+head(tips)
+tips$fillcol2 = as.factor(tips$fillcol)
+levels(tips$fillcol2) = c('green' = 'red', 'red' = 'green')
+head(tips)
+tips = arrange(tips, fillcol)
+head(tips)
+tips = arrange(tips, -fillcol)
+tips = arrange(tips, desc(fillcol))
+head(tips)
+qplot(total_bill, tip, data = tips, geom = 'blank') + geom_point(aes(colour = fillcol)) + scale_colour_identity()
+qplot(total_bill, tip, data = tips, geom = 'blank') + geom_point(aes(colour = fillcol2)) + scale_colour_identity()
+? levels
+attr(tips$fillcol, 'levels')
+x <- gl(2, 4, 8)#
+levels(x)[1] <- "low"#
+levels(x)[2] <- "high"#
+x
+x
+? ordered
+levels(fillcol2)
+levels(tips$fillcol2)
+df$fillcol2
+display.brewer.all(n=10)
+? col2rgb
+? melt
+## LOAD LIBRARIES AND CUSTOM FUNCTIONS#
+#
+library(maptools);#
+library(RColorBrewer);#
+library(ggplot2);#
+library(gridExtra);#
+gpclibPermit();#
+source('lib/utilities.R')#
+#
+## STEP 0: Load Data#
+#
+# load map data (Source: http://goo.gl/bCUEF)#
+shpfile = '1_data/maps/Precincts.shp';#
+poly    = readShapeSpatial(shpfile);          #
+#
+# load election results data (Source: http://goo.gl/HYwdV)#
+df        = read.csv('1_data/precincts.csv');#
+#
+## STEP 2: Process Data #
+#
+#
+# remove vote counts and 'pct' from names#
+df        = df[,-grep('count', names(df))];         #
+names(df) = sub('_pct', '', names(df));#
+#
+# find winner and their pct of votes secured for each precinct.#
+candidates = names(df)[4:9];                                #
+df$winner  = candidates[apply(df[, candidates], 1, which.max)];    #
+df$winpct  = apply(df[, candidates], 1, max);
+id1 = list('WARD', 'PRECINCT')
+id1 = list('ward', 'precinct')
+.poly = poly
+.df = df
+head(.poly@data)
+head(.df)
+.poly@data$.id  = with(.poly@data, do.call('paste', list(id1, sep = "-")));
+head(.poly)
+head(.poly@data)
+id1 = list(WARD, PRECINCT)
+id1
+deparse(substitute(id1))
+get(id1)
+? get
+assign(list1)
+assign(id1)
+? assign
+eval(substitute(id1))
+id1
+substitute(id1)
+substitute(deparse(id1))
+llply(id1, deparse)
+llply(id1, substitute)
+substitute('ward')
+llply(id1, eval)
+llply(id1, deparse)
+eval(parse(id1))
+lapply(id1, parse)
+llply(id1, parse)
+parse('ward')
+eval('ward')
+eval(parse(id1[[1]]))
+get('ward')
+get('id')
+? id
+.df$.id        = with(.df, do.call('paste', list(get(id1), sep = "-")));
+.df$.id        = with(.df, do.call('paste', list(get(id1), sep = "-")));
+do.call('paste', list(poly@data[,id1], sep = '-'))
+do.call('paste', poly@data[,id1])
+do.call(paste, poly@data[,id1])
+? do.call
+.df$.id        = with(.df, do.call('paste', c(id1, sep = "-")));
+head(.df)
+do.call('paste', c(.poly@data[,id1], sep = '-'))
+id11 = assign(id1)
+assign(id1) = id11
+id1
+? do.call
+as.name('ward')
+as.name(id1)
+llply(id1, as.name)
+id1 = llply(id1, as.name); id2 = llply(id2, as.name)
+id2
+ls
+ls()
+id1
+id2 = list('ward', 'precinct')
+library(maptools);#
+library(RColorBrewer);#
+library(ggplot2);#
+library(gridExtra);#
+gpclibPermit();#
+source('lib/utilities.R')#
+#
+## STEP 0: Load Data#
+#
+# load map data (Source: http://goo.gl/bCUEF)#
+shpfile = '1_data/maps/Precincts.shp';#
+poly    = readShapeSpatial(shpfile);          #
+#
+# load election results data (Source: http://goo.gl/HYwdV)#
+df        = read.csv('1_data/precincts.csv');#
+#
+## STEP 2: Process Data #
+#
+#
+# remove vote counts and 'pct' from names#
+df        = df[,-grep('count', names(df))];         #
+names(df) = sub('_pct', '', names(df));#
+#
+# find winner and their pct of votes secured for each precinct.#
+candidates = names(df)[4:9];                                #
+df$winner  = candidates[apply(df[, candidates], 1, which.max)];    #
+df$winpct  = apply(df[, candidates], 1, max);
+head(poly)
+id1 = list('WARD', 'PRECINCT')
+id2 = list('ward', 'precinct')
+.poly = poly
+.df = df
+id1 = llply(id1, as.name); id2 = llply(id2, as.name)#
+	.poly@data$.id  = with(.poly@data, do.call('paste', list(id1, sep = "-")));
+head(.poly)
+head(.poly@data)
+id1 = llply(id1, as.name); id2 = llply(id2, as.name)#
+	.poly@data$.id  = with(.poly@data, do.call('paste', c(id1, sep = "-")));
+head(.poly@data)
+fillcol = NA; colpal = 'PuRd'; bins = 5; #
+	                       breaks = bins
+	if(all(is.na(breaks))){n = bins} else {n = length(breaks) - 1}						#
+	if(!is.na(df) && is.na(fillcol)){#
+#
+		.df$intvl = cut(.df[,value], breaks, labels = F, include.lowest = T);#
+		fillcol   = brewer.pal(n, colpal)#
+		.df       = adply(.df, 1, transform, fillcol = fillcol[intvl])#
+	}
+value = 'emanuel'
+	if(all(is.na(breaks))){n = bins} else {n = length(breaks) - 1}						#
+	if(!is.na(df) && is.na(fillcol)){#
+#
+		.df$intvl = cut(.df[,value], breaks, labels = F, include.lowest = T);#
+		fillcol   = brewer.pal(n, colpal)#
+		.df       = adply(.df, 1, transform, fillcol = fillcol[intvl])#
+	}
+n
+if(breaks == bins){n = bins} else {n = length(breaks) - 1}						#
+	if(!is.na(df) && is.na(fillcol)){#
+#
+		.df$intvl = cut(.df[,value], breaks, labels = F, include.lowest = T);#
+		fillcol   = brewer.pal(n, colpal)#
+		.df       = adply(.df, 1, transform, fillcol = fillcol[intvl])#
+	}
+head(.df)
+n
+fillcol
+	.df$intvl = cut(.df[,value], breaks, labels = F, include.lowest = T);#
+		fillcol   = brewer.pal(n, colpal)
+head(.df)
+fillcol
+.df       = adply(.df, 1, transform, fillcol = fillcol[intvl])
+head(.df)
+fillcol
+colpal
+brewer.pal(5, 'PuRd')
+.df  = df
+if(breaks == bins){n = bins} else {n = length(breaks) - 1}						#
+	if(!is.na(df) && is.na(fillcol)){#
+#
+		.df$intvl = cut(.df[,value], breaks, labels = F, include.lowest = T);#
+		fillcol   = brewer.pal(n, colpal)#
+		.df       = adply(.df, 1, transform, fillcol = fillcol[intvl])#
+	}
+head(.df)
+if(!is.na(.df) && is.na(fillcol)){#
+#
+		.df$intvl = cut(.df[,value], breaks, labels = F, include.lowest = T);#
+		fillcol   = brewer.pal(n, colpal)#
+		.df       = adply(.df, 1, transform, fillcol = fillcol[intvl])#
+	}
+fillcol
+fillcol = NA
+if(!is.na(.df) && is.na(fillcol)){#
+#
+		.df$intvl = cut(.df[,value], breaks, labels = F, include.lowest = T);#
+		fillcol   = brewer.pal(n, colpal)#
+		.df       = adply(.df, 1, transform, fillcol = fillcol[intvl])#
+	}
+head(.df)
+brewer.pal(5, 'PuRd')
+	 id1 = llply(id1, as.name); id2 = llply(id2, as.name)#
+	.poly@data$.id  = with(.poly@data, do.call('paste', list(id1, sep = "-")));#
+	.df$.id        = with(.df, do.call('paste', list(id1, sep = "-")));
+head(.df)
+id1
+id2
+ id1 = llply(id1, as.name); id2 = llply(id2, as.name)#
+	.poly@data$.id  = with(.poly@data, do.call('paste', c(id1, sep = "-")));#
+	.df$.id        = with(.df, do.call('paste', c(id1, sep = "-")));
+id1
+head(.poly)
+head(.df)
+head(.poly@data)
+ id1 = llply(id1, as.name); id2 = llply(id2, as.name)#
+	.poly@data$.id  = with(.poly@data, do.call('paste', c(id1, sep = "-")));#
+	.df$.id        = with(.df, do.call('paste', c(id2, sep = "-")));
+head(.df)
+	# fortify shape file to data frame and merge with data#
+	map       = fortify(.poly, region = '.id');        #
+	map.data  = merge(map, .df, by = '.id');                      #
+	map.data  = map.data[order(map.data$order),];
+head(map)
+ id1 = llply(id1, as.name); id2 = llply(id2, as.name)#
+	.poly@data$id  = with(.poly@data, do.call('paste', c(id1, sep = "-")));#
+	.df$id        = with(.df, do.call('paste', c(id2, sep = "-"))); #
+#
+	# fortify shape file to data frame and merge with data#
+	map       = fortify(.poly, region = 'id');        #
+	map.data  = merge(map, .df, by = 'id');                      #
+	map.data  = map.data[order(map.data$order),];
+head(map.data)
+brewer.pal(5, 'PuRd')
+	p0 = ggplot(map.data, aes(long, lat, group = group)) +#
+	     geom_polygon(aes(fill = fillcol)) +#
+	     scale_fill_identity() +#
+	     theme_map();
+p0
+plotChoropleth <- function(.poly, id1, value, .df = NA, id2 = id1,  #
+	                       fillcol = NA, colpal = 'PuRd', bins = 5, #
+	                       breaks = bins){#
+		#
+	if(breaks == bins){n = bins} else {n = length(breaks) - 1}						#
+	if(!is.na(.df) && is.na(fillcol)){#
+#
+		.df$intvl = cut(.df[,value], breaks, labels = F, include.lowest = T);#
+		fillcol   = brewer.pal(n, colpal)#
+		.df       = adply(.df, 1, transform, fillcol = fillcol[intvl])#
+	}#
+#
+#
+	# create id to match the shapefile with data#
+	 id1 = llply(id1, as.name); id2 = llply(id2, as.name)#
+	.poly@data$id  = with(.poly@data, do.call('paste', c(id1, sep = "-")));#
+	.df$id        = with(.df, do.call('paste', c(id2, sep = "-"))); #
+#
+	# fortify shape file to data frame and merge with data#
+	map       = fortify(.poly, region = 'id');        #
+	map.data  = merge(map, .df, by = 'id');                      #
+	map.data  = map.data[order(map.data$order),];#
+	#
+	p0 = ggplot(map.data, aes(long, lat, group = group)) +#
+	     geom_polygon(aes(fill = fillcol)) +#
+	     scale_fill_identity() +#
+	     theme_map();#
+#
+}
+head(df)
+plotChoropleth(poly, id1 = list('WARD', 'PRECINCT'), value = 'emanuel',#
+               df,   id2 = list('ward', 'precinct'))
+p1 = plotChoropleth(poly, id1 = list('WARD', 'PRECINCT'), value = 'emanuel',#
+               df,   id2 = list('ward', 'precinct'))
+p1
+p2 = plotChoropleth(poly, id1 = list('WARD', 'PRECINCT'), value = 'chico',#
+               df,   id2 = list('ward', 'precinct'), colpal = 'Blues')
+p2
+colpal
+colpal = NULL
+colpal
+p2 = plotChoropleth(poly, id1 = list('WARD', 'PRECINCT'), value = 'chico',#
+               df,   id2 = list('ward', 'precinct'), colpal = 'Blues')
+p2
+fillcol
+rm(fillcol)
+rm(colpal)
+p2 = plotChoropleth(poly, id1 = list('WARD', 'PRECINCT'), value = 'chico',#
+               df,   id2 = list('ward', 'precinct'), colpal = 'Blues')
+plotChoropleth <- function(.poly, id1, value, .df = NA, id2 = id1,  #
+	                       fillcol = NA, colpal = 'PuRd', bins = 5, #
+	                       breaks = bins){#
+		#
+	if(breaks == bins){n = bins} else {n = length(breaks) - 1}						#
+	if(!is.na(.df) && is.na(fillcol)){#
+#
+		.df$intvl = cut(.df[,value], breaks, labels = F, include.lowest = T);#
+		.fillcol   = brewer.pal(n, colpal)#
+		.df       = adply(.df, 1, transform, fillcol = .fillcol[intvl])#
+	}#
+#
+#
+	# create id to match the shapefile with data#
+	 id1 = llply(id1, as.name); id2 = llply(id2, as.name)#
+	.poly@data$id  = with(.poly@data, do.call('paste', c(id1, sep = "-")));#
+	.df$id        = with(.df, do.call('paste', c(id2, sep = "-"))); #
+#
+	# fortify shape file to data frame and merge with data#
+	map       = fortify(.poly, region = 'id');        #
+	map.data  = merge(map, .df, by = 'id');                      #
+	map.data  = map.data[order(map.data$order),];#
+	#
+	p0 = ggplot(map.data, aes(long, lat, group = group)) +#
+	     geom_polygon(aes(fill = fillcol)) +#
+	     scale_fill_identity() +#
+	     theme_map();#
+#
+}
+p2 = plotChoropleth(poly, id1 = list('WARD', 'PRECINCT'), value = 'chico',#
+               df,   id2 = list('ward', 'precinct'), colpal = 'Blues')
+head(df)
+p2 = plotChoropleth(poly, id1 = list('WARD', 'PRECINCT'), value = 'chico',#
+               df,   id2 = list('ward', 'precinct'))
+brewer.pal(5, 'PuRd')
+fillcol
+is.na(fillcol)
+plotChoropleth <- function(.poly, id1, value, .df = NA, id2 = id1,  #
+	                       fillcol = NA, colpal = 'PuRd', bins = 5, #
+	                       breaks = bins){#
+		#
+	if(breaks == bins){n = bins} else {n = length(breaks) - 1}						#
+	if(!is.na(.df) && is.na(fillcol)){#
+#
+		.df$intvl = cut(.df[,value], breaks, labels = F, include.lowest = T);#
+		.fillcol   = brewer.pal(n, colpal)#
+		.df       = adply(.df, 1, transform, fillcol = .fillcol[intvl])#
+	}#
+#
+#
+	# create id to match the shapefile with data#
+	 id1 = llply(id1, as.name); id2 = llply(id2, as.name)#
+	.poly@data$id  = with(.poly@data, do.call('paste', c(id1, sep = "-")));#
+	.df$id        = with(.df, do.call('paste', c(id2, sep = "-"))); #
+#
+	# fortify shape file to data frame and merge with data#
+	map       = fortify(.poly, region = 'id');        #
+	map.data  = merge(map, .df, by = 'id');                      #
+	map.data  = map.data[order(map.data$order),];#
+	#
+	p0 = ggplot(map.data, aes(long, lat, group = group)) +#
+	     geom_polygon(aes(fill = fillcol)) +#
+	     scale_fill_identity() +#
+	     theme_map();#
+#
+}
+p2 = plotChoropleth(poly, id1 = list('WARD', 'PRECINCT'), value = 'emanuel',#
+               df,   id2 = list('ward', 'precinct'))
+.poly = poly
+.df = df
+id1 = list('WARD', 'PRECINCT')
+id2 = list('ward', 'precinct')
+fillcol = NA; colpal = 'PuRd'; bins = 5, #
+	                       breaks = bins;
+fillcol = NA; colpal = 'PuRd'; bins = 5; #
+	                       breaks = bins;
+if(breaks == bins){n = bins} else {n = length(breaks) - 1}						#
+	if(!is.na(.df) && is.na(fillcol)){#
+#
+		.df$intvl = cut(.df[,value], breaks, labels = F, include.lowest = T);#
+		.fillcol   = brewer.pal(n, colpal)#
+		.df       = adply(.df, 1, transform, fillcol = .fillcol[intvl])#
+	}
+head(.df)
+ id1 = llply(id1, as.name); id2 = llply(id2, as.name)#
+	.poly@data$id  = with(.poly@data, do.call('paste', c(id1, sep = "-")));#
+	.df$id        = with(.df, do.call('paste', c(id2, sep = "-")));
+head(.df)
+	map       = fortify(.poly, region = 'id');        #
+	map.data  = merge(map, .df, by = 'id');                      #
+	map.data  = map.data[order(map.data$order),];#
+	#
+	p0 = ggplot(map.data, aes(long, lat, group = group)) +#
+	     geom_polygon(aes(fill = fillcol)) +#
+	     scale_fill_identity() +#
+	     theme_map();
+plotChoropleth <- function(.poly, id1, value, .df = NA, id2 = id1,  #
+	                       fill = NA, colpal = 'PuRd', bins = 5, #
+	                       breaks = bins){#
+		#
+	if(breaks == bins){n = bins} else {n = length(breaks) - 1}						#
+	if(!is.na(.df) && is.na(fill)){#
+#
+		.df$intvl = cut(.df[,value], breaks, labels = F, include.lowest = T);#
+		 fillcol   = brewer.pal(n, colpal)#
+		.df       = adply(.df, 1, transform, fillcol = fillcol[intvl])#
+	} else {#
+		#
+		.df$fillcol = .df[,fill];#
+	}#
+#
+#
+	# create id to match the shapefile with data#
+	 id1 = llply(id1, as.name); id2 = llply(id2, as.name)#
+	.poly@data$id  = with(.poly@data, do.call('paste', c(id1, sep = "-")));#
+	.df$id        = with(.df, do.call('paste', c(id2, sep = "-"))); #
+#
+	# fortify shape file to data frame and merge with data#
+	map       = fortify(.poly, region = 'id');        #
+	map.data  = merge(map, .df, by = 'id');                      #
+	map.data  = map.data[order(map.data$order),];#
+	#
+	p0 = ggplot(map.data, aes(long, lat, group = group)) +#
+	     geom_polygon(aes(fill = fillcol)) +#
+	     scale_fill_identity() +#
+	     theme_map();#
+#
+}
+rm(colpal)
+rm(fillcol)
+rm(n)
+rm(.df)
+rm(.poly)
+ls()
+rm(id1)
+rm(id2)
+ls()
+rm(value)
+ls()
+rm(bin)
+rm(bins)
+rm(breaks)
+ls()
+p2 = plotChoropleth(poly, id1 = list('WARD', 'PRECINCT'), value = 'emanuel',#
+               df,   id2 = list('ward', 'precinct'))
+plotChoropleth <- function(.poly, id1, value, .df = NA, id2 = id1,  #
+	                       fill = NA, colpal = 'PuRd', bins = 5, #
+	                       breaks = bins){#
+		#
+	if(breaks == bins){n = bins} else {n = length(breaks) - 1}						#
+	if(!is.na(.df) && is.na(fill)){#
+#
+		.df$intvl = cut(.df[,value], breaks, labels = F, include.lowest = T);#
+		 fillcol   = brewer.pal(n, colpal)#
+		.df       = adply(.df, 1, transform, fill = fillcol[intvl])#
+	} else {#
+		#
+		.df$fill = .df[,fill];#
+	}#
+#
+#
+	# create id to match the shapefile with data#
+	 id1 = llply(id1, as.name); id2 = llply(id2, as.name)#
+	.poly@data$id  = with(.poly@data, do.call('paste', c(id1, sep = "-")));#
+	.df$id        = with(.df, do.call('paste', c(id2, sep = "-"))); #
+#
+	# fortify shape file to data frame and merge with data#
+	map       = fortify(.poly, region = 'id');        #
+	map.data  = merge(map, .df, by = 'id');                      #
+	map.data  = map.data[order(map.data$order),];#
+	#
+	p0 = ggplot(map.data, aes(long, lat, group = group)) +#
+	     geom_polygon(aes(fill = fillcol)) +#
+	     scale_fill_identity() +#
+	     theme_map();#
+#
+}
+p2 = plotChoropleth(poly, id1 = list('WARD', 'PRECINCT'), value = 'emanuel',#
+               df,   id2 = list('ward', 'precinct'))
+plotChoropleth <- function(.poly, id1, value, .df = NA, id2 = id1,  #
+	                       fill = NA, colpal = 'PuRd', bins = 5, #
+	                       breaks = bins){#
+		#
+	if(breaks == bins){n = bins} else {n = length(breaks) - 1}						#
+	if(!is.na(.df) && is.na(fill)){#
+#
+		.df$intvl = cut(.df[,value], breaks, labels = F, include.lowest = T);#
+		 fillcol2   = brewer.pal(n, colpal)#
+		.df       = adply(.df, 1, transform, fill = fillcol2[intvl])#
+	} else {#
+		#
+		.df$fill = .df[,fill];#
+	}#
+#
+#
+	# create id to match the shapefile with data#
+	 id1 = llply(id1, as.name); id2 = llply(id2, as.name)#
+	.poly@data$id  = with(.poly@data, do.call('paste', c(id1, sep = "-")));#
+	.df$id        = with(.df, do.call('paste', c(id2, sep = "-"))); #
+#
+	# fortify shape file to data frame and merge with data#
+	map       = fortify(.poly, region = 'id');        #
+	map.data  = merge(map, .df, by = 'id');                      #
+	map.data  = map.data[order(map.data$order),];#
+	#
+	p0 = ggplot(map.data, aes(long, lat, group = group)) +#
+	     geom_polygon(aes(fill = fillcol)) +#
+	     scale_fill_identity() +#
+	     theme_map();#
+#
+}
+p2 = plotChoropleth(poly, id1 = list('WARD', 'PRECINCT'), value = 'emanuel',#
+               df,   id2 = list('ward', 'precinct'))
+p2 = plotChoropleth(poly, id1 = list('WARD', 'PRECINCT'), value = 'emanuel', df,   id2 = list('ward', 'precinct'), colpal = 'Blues')
+n = 5
+p2 = plotChoropleth(poly, id1 = list('WARD', 'PRECINCT'), value = 'emanuel', df,   id2 = list('ward', 'precinct'), colpal = 'Blues')
+colpal = 'Blues'
+rm(n)
+p2 = plotChoropleth(poly, id1 = list('WARD', 'PRECINCT'), value = 'emanuel', df,   id2 = list('ward', 'precinct'), colpal = 'Blues')
+? brewer.pal
+p2 = plotChoropleth(poly, id1 = list('WARD', 'PRECINCT'), value = 'emanuel', df,   id2 = list('ward', 'precinct'), colpal = "Blues")
+plotChoropleth <- function(.poly, id1, value, .df = NA, id2 = id1,  #
+	                       fill = NA, colpal = 'PuRd', breaks = 5){#
+		#
+	if (breaks == 5){n = 5} else {n = length(breaks) - 1}						#
+	if(!is.na(.df) && is.na(fill)){#
+         #
+		.df$intvl = cut(.df[,value], breaks, labels = F, include.lowest = T);#
+		 fillcol2 = brewer.pal(n, colpal)#
+		.df       = adply(.df, 1, transform, fill = fillcol2[intvl])#
+	} else {#
+		#
+		.df$fill = .df[,fill];#
+	}#
+#
+#
+	# create id to match the shapefile with data#
+	 id1 = llply(id1, as.name); id2 = llply(id2, as.name)#
+	.poly@data$id  = with(.poly@data, do.call('paste', c(id1, sep = "-")));#
+	.df$id        = with(.df, do.call('paste', c(id2, sep = "-"))); #
+#
+	# fortify shape file to data frame and merge with data#
+	map       = fortify(.poly, region = 'id');        #
+	map.data  = merge(map, .df, by = 'id');                      #
+	map.data  = map.data[order(map.data$order),];#
+	#
+	p0 = ggplot(map.data, aes(long, lat, group = group)) +#
+	     geom_polygon(aes(fill = fillcol)) +#
+	     scale_fill_identity() +#
+	     theme_map();#
+#
+}
+p2 = plotChoropleth(poly, id1 = list('WARD', 'PRECINCT'), value = 'emanuel', df,   id2 = list('ward', 'precinct'), colpal = "Blues")
+plotChoropleth <- function(.poly, id1, value, .df = NA, id2 = id1,  #
+	                       fill = NA, colpal = 'PuRd', breaks = 5){#
+		#
+	if (breaks == 5){n = 5} else {n = length(breaks) - 1}						#
+	if(!is.na(.df) && is.na(fill)){#
+         #
+		.df$intvl = cut(.df[,value], breaks, labels = F, include.lowest = T);#
+		 fillcol2 = brewer.pal(n, colpal)#
+		.df       = adply(.df, 1, transform, fill = fillcol2[intvl])#
+	} else {#
+		#
+		.df$fill = .df[,fill];#
+	}#
+#
+#
+	# # create id to match the shapefile with data#
+	# 	 id1 = llply(id1, as.name); id2 = llply(id2, as.name)#
+	# 	.poly@data$id  = with(.poly@data, do.call('paste', c(id1, sep = "-")));#
+	# 	.df$id        = with(.df, do.call('paste', c(id2, sep = "-"))); #
+	# #
+	# 	# fortify shape file to data frame and merge with data#
+	# 	map       = fortify(.poly, region = 'id');        #
+	# 	map.data  = merge(map, .df, by = 'id');                      #
+	# 	map.data  = map.data[order(map.data$order),];#
+	# 	#
+	# 	p0 = ggplot(map.data, aes(long, lat, group = group)) +#
+	# 	     geom_polygon(aes(fill = fillcol)) +#
+	# 	     scale_fill_identity() +#
+	# 	     theme_map();#
+#
+}
+p2 = plotChoropleth(poly, id1 = list('WARD', 'PRECINCT'), value = 'emanuel', df,   id2 = list('ward', 'precinct'), colpal = "Blues")
+p2 = plotChoropleth(poly, id1 = list('WARD', 'PRECINCT'), value = 'emanuel', df,   id2 = list('ward', 'precinct'), colpal = "Blues")
+plotChoropleth <- function(.poly, id1, value, .df = NA, id2 = id1,  #
+	                       fill = NA, colpal = 'PuRd', breaks = 5){#
+		#
+	if (breaks == 5){n = 5} else {n = length(breaks) - 1};#
+	return(n)						#
+	# if(!is.na(.df) && is.na(fill)){#
+	#          #
+	# 		.df$intvl = cut(.df[,value], breaks, labels = F, include.lowest = T);#
+	# 		 fillcol2 = brewer.pal(n, colpal)#
+	# 		.df       = adply(.df, 1, transform, fill = fillcol2[intvl])#
+	# 	} else {#
+	# 		#
+	# 		.df$fill = .df[,fill];#
+	# 	}#
+#
+#
+	# # create id to match the shapefile with data#
+	# 	 id1 = llply(id1, as.name); id2 = llply(id2, as.name)#
+	# 	.poly@data$id  = with(.poly@data, do.call('paste', c(id1, sep = "-")));#
+	# 	.df$id        = with(.df, do.call('paste', c(id2, sep = "-"))); #
+	# #
+	# 	# fortify shape file to data frame and merge with data#
+	# 	map       = fortify(.poly, region = 'id');        #
+	# 	map.data  = merge(map, .df, by = 'id');                      #
+	# 	map.data  = map.data[order(map.data$order),];#
+	# 	#
+	# 	p0 = ggplot(map.data, aes(long, lat, group = group)) +#
+	# 	     geom_polygon(aes(fill = fillcol)) +#
+	# 	     scale_fill_identity() +#
+	# 	     theme_map();#
+#
+}
+p2 = plotChoropleth(poly, id1 = list('WARD', 'PRECINCT'), value = 'emanuel', df,   id2 = list('ward', 'precinct'), colpal = "Blues")
+p2
+plotChoropleth <- function(.poly, id1, value, .df = NA, id2 = id1,  #
+	                       fill = NA, colpal = 'PuRd', breaks = 5){#
+		#
+	if (breaks == 5){n = 5} else {n = length(breaks) - 1};#
+	return(n)						#
+	if(!is.na(.df) && is.na(fill)){#
+		         #
+				.df$intvl = cut(.df[,value], breaks, labels = F, include.lowest = T);#
+				 fillcol2 = brewer.pal(n, colpal)#
+				.df       = adply(.df, 1, transform, fill = fillcol2[intvl])#
+	} else {#
+		#
+		.df$fill = .df[,fill];#
+	}#
+	#
+	return(fillcol2)#
+#
+#
+	# # create id to match the shapefile with data#
+	# 	 id1 = llply(id1, as.name); id2 = llply(id2, as.name)#
+	# 	.poly@data$id  = with(.poly@data, do.call('paste', c(id1, sep = "-")));#
+	# 	.df$id        = with(.df, do.call('paste', c(id2, sep = "-"))); #
+	# #
+	# 	# fortify shape file to data frame and merge with data#
+	# 	map       = fortify(.poly, region = 'id');        #
+	# 	map.data  = merge(map, .df, by = 'id');                      #
+	# 	map.data  = map.data[order(map.data$order),];#
+	# 	#
+	# 	p0 = ggplot(map.data, aes(long, lat, group = group)) +#
+	# 	     geom_polygon(aes(fill = fillcol)) +#
+	# 	     scale_fill_identity() +#
+	# 	     theme_map();#
+#
+}
+p2 = plotChoropleth(poly, id1 = list('WARD', 'PRECINCT'), value = 'emanuel', df,   id2 = list('ward', 'precinct'), colpal = "Blues")
+p2
+plotChoropleth <- function(.poly, id1, value, .df = NA, id2 = id1,  #
+	                       fill = NA, colpal = 'PuRd', breaks = 5){#
+		#
+	if (breaks == 5){n = 5} else {n = length(breaks) - 1};#
+	return(n)						#
+	if(!is.na(.df) && is.na(fill)){#
+		         #
+				.df$intvl = cut(.df[,value], breaks, labels = F, include.lowest = T);#
+				 fillcol2 = brewer.pal(n, colpal)#
+				.df       = adply(.df, 1, transform, fill = fillcol2[intvl])#
+	} else {#
+		#
+		.df$fill = .df[,fill];#
+	}#
+	#
+	return(fillcol2)#
+#
+#
+	# # create id to match the shapefile with data#
+	# 	 id1 = llply(id1, as.name); id2 = llply(id2, as.name)#
+	# 	.poly@data$id  = with(.poly@data, do.call('paste', c(id1, sep = "-")));#
+	# 	.df$id        = with(.df, do.call('paste', c(id2, sep = "-"))); #
+	# #
+	# 	# fortify shape file to data frame and merge with data#
+	# 	map       = fortify(.poly, region = 'id');        #
+	# 	map.data  = merge(map, .df, by = 'id');                      #
+	# 	map.data  = map.data[order(map.data$order),];#
+	# 	#
+	# 	p0 = ggplot(map.data, aes(long, lat, group = group)) +#
+	# 	     geom_polygon(aes(fill = fillcol)) +#
+	# 	     scale_fill_identity() +#
+	# 	     theme_map();#
+#
+}
+p2 = plotChoropleth(poly, id1 = list('WARD', 'PRECINCT'), value = 'emanuel', df,   id2 = list('ward', 'precinct'), colpal = "Blues")
+p2
+p3 = plotChoropleth(poly, id1 = list('WARD', 'PRECINCT'), value = 'emanuel', df,   id2 = list('ward', 'precinct'), colpal = "Blues")
+p3
+plotChoropleth <- function(.poly, id1, value, .df = NA, id2 = id1,  #
+	                       fill = NA, colpal = 'PuRd', breaks = 5){#
+		#
+	if (breaks == 5){n = 5} else {n = length(breaks) - 1};#
+	return(n)						#
+	if(!is.na(.df) && is.na(fill)){#
+		         #
+				.df$intvl = cut(.df[,value], breaks, labels = F, include.lowest = T);#
+				 fillcol2 = brewer.pal(n, colpal)#
+				.df       = adply(.df, 1, transform, fill = fillcol2[intvl])#
+	} else {#
+		#
+		.df$fill = .df[,fill];#
+	}#
+	#
+	return(list(n, fillcol2))#
+#
+#
+	# # create id to match the shapefile with data#
+	# 	 id1 = llply(id1, as.name); id2 = llply(id2, as.name)#
+	# 	.poly@data$id  = with(.poly@data, do.call('paste', c(id1, sep = "-")));#
+	# 	.df$id        = with(.df, do.call('paste', c(id2, sep = "-"))); #
+	# #
+	# 	# fortify shape file to data frame and merge with data#
+	# 	map       = fortify(.poly, region = 'id');        #
+	# 	map.data  = merge(map, .df, by = 'id');                      #
+	# 	map.data  = map.data[order(map.data$order),];#
+	# 	#
+	# 	p0 = ggplot(map.data, aes(long, lat, group = group)) +#
+	# 	     geom_polygon(aes(fill = fillcol)) +#
+	# 	     scale_fill_identity() +#
+	# 	     theme_map();#
+#
+}
+p3 = plotChoropleth(poly, id1 = list('WARD', 'PRECINCT'), value = 'emanuel', df,   id2 = list('ward', 'precinct'), colpal = "Blues")
+p3
+rm(p3)
+p3 = plotChoropleth(poly, id1 = list('WARD', 'PRECINCT'), value = 'emanuel', df,   id2 = list('ward', 'precinct'), colpal = "Blues")
+p3
+fillcol2
+setwd('/Users/ramnathvaidyanathan/Desktop/R Projects/Chicago Mayoral Elections/2_code')
+plotChoropleth <- function(.poly, id1, value, .df = NA, id2 = id1,  #
+	                       fill = NA, colpal = 'PuRd', breaks = 5){#
+		#
+	if (breaks == 5){n = 5} else {n = length(breaks) - 1};#
+	return(n)						#
+	if(!is.na(.df) && is.na(fill)){#
+		         #
+				.df$intvl = cut(.df[,value], breaks, labels = F, include.lowest = T);#
+				 fillcol2 = brewer.pal(n, colpal)#
+				.df       = adply(.df, 1, transform, fill = fillcol2[intvl])#
+	} else {#
+		#
+		.df$fill = .df[,fill];#
+	}#
+	#
+	return(list(n, fillcol2))#
+#
+#
+	# # create id to match the shapefile with data#
+	# 	 id1 = llply(id1, as.name); id2 = llply(id2, as.name)#
+	# 	.poly@data$id  = with(.poly@data, do.call('paste', c(id1, sep = "-")));#
+	# 	.df$id        = with(.df, do.call('paste', c(id2, sep = "-"))); #
+	# #
+	# 	# fortify shape file to data frame and merge with data#
+	# 	map       = fortify(.poly, region = 'id');        #
+	# 	map.data  = merge(map, .df, by = 'id');                      #
+	# 	map.data  = map.data[order(map.data$order),];#
+	# 	#
+	# 	p0 = ggplot(map.data, aes(long, lat, group = group)) +#
+	# 	     geom_polygon(aes(fill = fillcol)) +#
+	# 	     scale_fill_identity() +#
+	# 	     theme_map();#
+#
+}
+p3 = plotChoropleth(poly, id1 = list('WARD', 'PRECINCT'), value = 'emanuel', df,   id2 = list('ward', 'precinct'), colpal = "Blues")
+p3

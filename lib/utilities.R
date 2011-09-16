@@ -2,48 +2,46 @@
 
 library(maptools); gpclibPermit();
 library(ggplot2); library(RColorBrewer);
-library(gdata);
+# library(gdata);
 
 ## PLAIN THEME FOR MAP
 ## Source: ggplot mailing list
 
-theme_map = function(size = 12) { 
-	
-    o = list(## AXIS
-			 axis.line         = theme_blank(), 
-             axis.text.x       = theme_blank(), 
-             axis.text.y       = theme_blank(), 
-             axis.ticks        = theme_blank(), 
-             axis.ticks.length = unit(0.3, "lines"),
-             axis.ticks.margin = unit(0.5, "lines"), 
-             axis.title.x      = theme_blank(), 
-             axis.title.y      = theme_blank(), 
+theme_map = function(size = 12) {o = list(
+    ## AXIS
+	  axis.line         = theme_blank(), 
+    axis.text.x       = theme_blank(), 
+    axis.text.y       = theme_blank(), 
+    axis.ticks        = theme_blank(), 
+    axis.ticks.length = unit(0.3, "lines"),
+    axis.ticks.margin = unit(0.5, "lines"), 
+    axis.title.x      = theme_blank(), 
+    axis.title.y      = theme_blank(), 
 
-			 ## LEGEND
-             legend.background = theme_rect(fill="white", colour=NA), 
-             legend.key        = theme_rect(colour="white"), 
-             legend.key.size   = unit(1.2, "lines"), 
-             legend.position   = "right", 
-             legend.text       = theme_text(size=size*0.8), 
-             legend.title      = theme_text(size=size*0.8, face="bold", hjust=0), 
+		## LEGEND
+    legend.background = theme_rect(fill="white", colour=NA), 
+    legend.key        = theme_rect(colour="white"), 
+    legend.key.size   = unit(1.2, "lines"), 
+    legend.position   = "right", 
+    legend.text       = theme_text(size=size*0.8), 
+    legend.title      = theme_text(size=size*0.8, face="bold", hjust=0), 
 
-			 ## PANEL
-             panel.background  = theme_blank(), 
-             panel.border      = theme_rect(fill = NA, colour = "grey50"), 
-             panel.grid.major  = theme_line(colour = 'grey90', size = 0.2),
-             panel.grid.minor  = theme_line(colour = 'grey98', size = 0.5), 
-             panel.margin      = unit(0, "lines"), 
+		## PANEL
+    panel.background  = theme_blank(), 
+    panel.border      = theme_rect(fill = NA, colour = "grey50"), 
+    panel.grid.major  = theme_line(colour = 'grey90', size = 0.2),
+    panel.grid.minor  = theme_line(colour = 'grey98', size = 0.5), 
+    panel.margin      = unit(0, "lines"), 
 
-			 ## PLOT
-             plot.background   = theme_blank(), 
-			       plot.margin       = unit(c(1, 1, 0.5, 0.5), "lines"), 
-             plot.title        = theme_text(size = size*1.2), 
-             strip.background  = theme_rect(fill = "grey90", colour = "grey50"), 
-             strip.text.x      = theme_text(size = size*0.8), 
-             strip.text.y      = theme_text(size = size*0.8, angle = -90)
-			)
-			
-			return(structure(o, class="options")) 
+	  ## PLOT
+    plot.background   = theme_blank(), 
+		plot.margin       = unit(c(1, 1, 0.5, 0.5), "lines"), 
+    plot.title        = theme_text(size = size*1.2), 
+    strip.background  = theme_rect(fill = "grey90", colour = "grey50"), 
+    strip.text.x      = theme_text(size = size*0.8), 
+    strip.text.y      = theme_text(size = size*0.8, angle = -90)
+		)
+	  return(structure(o, class="options")) 
 }
 
 ## FUNCTION TO SORT COLORS
@@ -135,27 +133,35 @@ plotChoropleth <- function(.poly, id1, field,
 ## FUNCTION TO ADD FOOTNOTE TO A PLOT
 ## Author: Mark Heckmann (http://goo.gl/2H69K)
 
-makeFootnote <- function(footnoteText =
-                         format(Sys.time(), "%d %b %Y"),
-                         size = .7, color= grey(.5))
+makeFootnote <- function(
+  footnoteText = format(Sys.time(), "%d %b %Y"),
+  size         = 0.7, 
+  color        = grey(.5))
 {
    require(grid)
    pushViewport(viewport())
    grid.text(label= footnoteText ,
-             x = unit(0,"npc") + unit(2, "mm"),
-             y= unit(2, "mm"),
-             just=c("left", "bottom"),
-             gp=gpar(cex= size, col=color))
+     x    = unit(0,"npc") + unit(2, "mm"),
+     y    = unit(2, "mm"),
+     just = c("left", "bottom"),
+     gp   = gpar(cex= size, col=color)
+   )
    popViewport()
 }
 
-# function to save plot as pdf using the cairo drivers
+# FUNCTION TO SAVE PLOT USING CAIRO DRIVERS
 
-savePlotAA <- function(p, filename = 'Rplots', width = 7, height = 7, source = NULL){
+savePlotAA <- function(
+  .plot, 
+  filename = 'Rplots',
+  width    =  7, 
+  height   = 7, 
+  source   = NULL){
+	
     require(Cairo)
     CairoPDF(file = filename, width = width, height = height)
-    print(p);
-    makeFootnote(source);
+    print(.plot)
+    makeFootnote(source)
     dev.off()
 }
 
