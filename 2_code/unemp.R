@@ -10,9 +10,9 @@ usmap@data$STATE = sapply(usmap$STATE, fac2num)
 choro4 = choropleth(.poly = usmap, .df = unemp,
  id1 = list('STATE', 'COUNTY'), 
  id2 = list('sfips', 'cfips'), 
- field = 'percentage',
+ field = 'unemprate',
  .title    = 'US Unemployment (2009)',
- .legtitle = '', type = 'spplot',
+ .legtitle = '', .ggplot = FALSE,
  colpal   = 'PuRd', style = 'fixed',
  fixedBreaks   = c(seq(0, 10, 2), 100))
 

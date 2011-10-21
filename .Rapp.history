@@ -1,433 +1,371 @@
-M[match(V$V1, M$M2),]
-system.time(M[match(V$V1, M$M2),])
-library(rbenchmark)
-f1 = function() M[match(V$V1, M$M2),]
-f2 = function() merge(V, M, by.x='V1', by.y='M2', sort=F)
-benchmark(f1(), f2(), replications = 100)
-benchmark(f1(), f2(), replications = 1000)
-M[,match(V$V1, M$M2)]
-M[match(V$V1, M$M2),]
-V1
-V
-f_ramnath = function() M[,match(V$V1, M$M2)]#
-f_aix = function() merge(V, M, by.x='V1', by.y='M2', sort=F)#
-#
-benchmark(f_ramnath(), f_aix(), replications = 1000)
-f_ramnath = function() M[match(V$V1, M$M2),]#
-f_aix = function() merge(V, M, by.x='V1', by.y='M2', sort=F)#
-#
-benchmark(f_ramnath(), f_aix(), replications = 1000)
-f_chase = function() M$M1[M$M2 %in% V$V1]
-f_chase()
-f_ramnath = function() M[match(V$V1, M$M2),]#
-f_aix = function() merge(V, M, by.x='V1', by.y='M2', sort=F)#
-#
-benchmark(f_ramnath(), f_aix(), f_chase(), replications = 1000)
-f_chase = function() M[M$M2 %in% V$V1,]
-f_chase()
-f_ramnath = function() M[match(V$V1, M$M2),]#
-f_aix = function() merge(V, M, by.x='V1', by.y='M2', sort=F)#
-#
-benchmark(f_ramnath(), f_aix(), f_chase(), replications = 1000)
-f_ramnath = function() M[match(V$V1, M$M2),]#
-f_aix = function() merge(V, M, by.x='V1', by.y='M2', sort=F)#
-#
-benchmark(f_ramnath(), f_aix(), f_chase(), replications = 10000)
-? match
-f4_ramnath = function() M[match(V$V1, M$M2, nomatch = 0),]
-f_ramnath = function() M[match(V$V1, M$M2),]#
-f_aix = function() merge(V, M, by.x='V1', by.y='M2', sort=F)#
-#
-benchmark(f_ramnath(), f_aix(), f_chase(), f4_ramnath(), replications = 10000)
-f_ramnath = function() M[match(V$V1, M$M2),]#
-f_aix = function() merge(V, M, by.x='V1', by.y='M2', sort=F)#
-#
-benchmark(f_ramnath(), f_aix(), f_chase(), f4_ramnath(), replications = 1000)
-M <- data.frame(M1 = sample(1:20, 15, FALSE), M2 = sample(1:20, 15, FALSE))
-V <- data.frame(V1 = sample(1:20, 10, FALSE))
-M <- data.frame(M1 = sample(1:20, 15, FALSE), M2 = sample(1:20, 15, FALSE))
-f_ramnath = function() M[match(V$V1, M$M2),]#
-f_aix = function() merge(V, M, by.x='V1', by.y='M2', sort=F)#
-#
-benchmark(f_ramnath(), f_aix(), f_chase(), f4_ramnath(), replications = 1000)
-M
-V
-f_ramnath = function() M[match(V$V1, M$M2),]#
-f_aix = function() merge(V, M, by.x='V1', by.y='M2', sort=F)#
-#
-benchmark(f_ramnath(), f_aix(), f_chase(), f4_ramnath(), replications = 1000)
-f_chase
-f_ramnath = function() M[match(V$V1, M$M2),]#
-f_aix = function() merge(V, M, by.x='V1', by.y='M2', sort=F)#
-#
-benchmark(f_ramnath(), f_aix(), f_chase(), f4_ramnath(), replications = 1000)
-M
-V
-genes <- matrix(c("chr1","chr2","chr2","chr2","chr2","chr2",#
-              "uc001upw.2","uc001upw.2","uc001upw.2","uc001upx.1","uc001upy.1","uc001upz.1",#
-              "188001308","188001308","188001308","188037202","188037202","188037202",#
-              "188021266","188021266","188021266","188086618","188127464","188127464",#
-              "-","-","-","-","-","-",#
-              "CARCRL","CALCRL","CALCRL","TFPI","TFPI","TFPI", #
-              "uc001upx.1","uc00upy.1","uc001upz.1","uc001upw.2","uc001upw.2","uc001upw.2",#
-              "188037202","188037202","188037202","188001308","188001308","188001308",#
-              "188086618","188127464","188127464","188021266","188021266","188021266",#
-              "-","-","-","-","-","-",#
-              "TFPI","TFPI","TFPI","CALCRL","CALCRL","CALCRL",#
-              "35894","35894","35894","35894","35894","35894"), nrow=6)#
-#
-colnames(genes)<- c("chr","names.x","start.x","stop.x","strand.x","alias.x","name.y","start.y","stop.y","strand.y", "alias.y", "distance_startsite")#
-genes<-as.data.frame(genes)
-genes
-genes[!duplicated(t(apply(genes[,c('names.x','name.y')],1,sort))),]
-update.packages()
-library(RCurl)
-library(XML)
-library(XML)#
-eval(parse(text=gsub('\r\n','\n',xpathApply(htmlTreeParse('http://pastebin.com/CDzYXNbG',useInternal=T),'//textarea',xmlValue))))
-h = xpathApply(htmlTreeParse('http://pastebin.com/CDzYXNbG',useInternal=T),'//textarea',xmlValue))
-h = xpathApply(htmlTreeParse('http://pastebin.com/CDzYXNbG',useInternal=T),'//textarea',xmlValue)
 h
-h = xpathApply(htmlTreeParse('http://pastebin.com/CDzYXNbG',useInternal=T),'//div/textarea',xmlValue)
-h
-h = xpathApply(htmlTreeParse('http://pastebin.com/raw.php?i=CDzYXNbG',useInternal=T),'//div/textarea',xmlValue)
-h
-h = readLines('http://pastebin.com/raw.php?i=CDzYXNbG')
-h
-? readLines
-update.packages()
-library(classIntervals)
-library(classInt)
-> anim <- c(1,2,3,4,5,6,7,8,9,10,11,12,13,14,15); wt <- c(181,179,180.5,201,201.5,245,246.4,189.3,301,354,369,205,199,394,231.3); das <- data.frame(anim,wt)
-> anim = c(1,2,3,4,5,6,7,8,9,10,11,12,13,14,15); wt = c(181,179,180.5,201,201.5,245,246.4,189.3,301,354,369,205,199,394,231.3); das = data.frame(anim,wt)
-anim = c(1,2,3,4,5,6,7,8,9,10,11,12,13,14,15); wt = c(181,179,180.5,201,201.5,245,246.4,189.3,301,354,369,205,199,394,231.3); das = data.frame(anim,wt)
-das
-das$wt2 = findIntervals(das$wt, n = 3, style = 'equal')
-das$wt2 = findInterval(das$wt, n = 3, style = 'equal')
-? findInterval
-? classInt
-library(help = 'classInt')
-? classIntervals
-das$wt2 = classIntervals(das$wt, n = 3, style = 'equal')
-classIntervals(das$wt, n = 3, style = 'equal')
-library(help = 'classInt')
-h = classIntervals(das$wt, n = 3, style = 'equal')
-str(h)
-classIntervals2shingle(das$wt)
-? classIntervals2shingle
-update.packages()
-callsInternalCode <- function(fn)#
-{#
-if(!require(stringr)) stop("stringr package required")#
-any(str_detect(capture.output(body(fn)), ".Internal"))#
-}
-funs <- Filter(is.function, sapply(ls(baseenv()), get, baseenv()))
-names(funs)[sapply(funs, callsInternalCode)]
-col.max
-? col.max
-? max.col
-? maxCol
-update.packages()
-library(XML);#
-#
-url = 'http://espn.go.com/nba/teams'#
-#
-# parse url into html tree#
-doc  = htmlTreeParse(url, useInternalNodes = T);
-xmlSApply(doc[[1]], xmlValue)
-xmlSApply(doc[1], xmlValue)
-doc[1]
-doc[[1]]
-nodes = getNodeSet(doc, "//h5/a[@href]");
-nodes[[1]]
-nodes[[2]]
-node1 = nodes[[1]]
-nod1
-node1
-xmlName(node1)
-xmlSize(node1)
-xmlSize(nods)
-xmlSize(nodes)
-xmlAttrs(nodes)
-xmlAttrs(node1)
-names(xmlAttrs(node1))
-.file = '~/Desktop/R Projects/Walmart Growth/walmarts.xml'
-doc     = xmlTreeParse(.file, useInternalNodes = T);
-class(doc)
-docroot = xmlRoot(doc)
-docroot[[1]]
-xmlName(docroot[[1]])
-xmlChildren(docroot[[1]])
-names(xmlChildren(docroot[[1]]))
-names(docroot[[1]])
-table(xmlApply(docroot, names))
-table(unlist(xmlApply(docroot, names)))
-xmlValNode = function(x) xmlSApply(x, xmlValue)
-xmlValNode(docroot[[1]])
-class(xmlValNode(docroot[[1]]))
-docroot[[1]]
-xmlSApply(docroot[[1]], xmlName)
-url1 = "http://en.wikipedia.org/wiki/Brazil_national_football_team_competitive_record"#
-#
-# METHOD 1: Use ReadHTMLTable#
-#
-method1 = function(){#
-  tables  = readHTMLTable(getURL(url1), asText = T);#
-  tab.ind = which.max(sapply(tables, nrow)); #
-  tab     = tables[[tab.ind]];#
-}#
-#
-# METHOD 2: Use getNodeSet and readHTMLTable#
-#
-method2 = function(){#
-  doc   = htmlTreeParse(url1, useInternalNodes = T);#
-  pat   = "//table[@class='wikitable sortable']"#
-  node  = getNodeSet(doc, pat);#
-  tab2  = lapply(node, readHTMLTable)[[1]];#
-}#
-#
-# METHOD 3: Use xpathApply#
-#
-method3 = function(){#
-  doc   = htmlTreeParse(url1, useInternalNodes = T);#
-  pat   = "//table[@class='wikitable sortable']"#
-  tab3  = xpathApply(doc, pat, readHTMLTable)[[1]];#
-}
-library(rbenchmark)#
-timings = benchmark(method1(), method2(), method3(), replications = 5);
-? readHTMLTable
-method1()
-method2()
-? getURL
-library(XML)#
-library(RCurl)
-library(rbenchmark)#
-timings = benchmark(method1(), method2(), method3(), replications = 5);
-method1 = function(){#
-  tables  = readHTMLTable(url1, asText = T);#
-  tab.ind = which.max(sapply(tables, nrow)); #
-  tab     = tables[[tab.ind]];#
-}#
-#
-# METHOD 2: Use getNodeSet and readHTMLTable#
-#
-method2 = function(){#
-  doc   = htmlTreeParse(url1, useInternalNodes = T);#
-  pat   = "//table[@class='wikitable sortable']"#
-  node  = getNodeSet(doc, pat);#
-  tab2  = lapply(node, readHTMLTable)[[1]];#
-}#
-#
-# METHOD 3: Use xpathApply#
-#
-method3 = function(){#
-  doc   = htmlTreeParse(url1, useInternalNodes = T);#
-  pat   = "//table[@class='wikitable sortable']"#
-  tab3  = xpathApply(doc, pat, readHTMLTable)[[1]];#
-}
-library(rbenchmark)#
-timings = benchmark(method1(), method2(), method3(), replications = 5);
-method2()
-url = 'http://en.wikipedia.org/wiki/Brazil_national_football_team_competitive_record'
-h = readHTMLTable(url)
-tidyHTML = function(.url){#
-  require(RCurl)#
-  w3.org = "http://services.w3.org/tidy/tidy"#
- .url    = paste(w3.org, sep = "",#
-            "?docAddr=", URLencode(.url, reserved = T),#
-            "&indent=on", #
-            "&forceXML=on")#
-  return(.url)#
-}
-h = readHTMLTable(tidyHTML(url))
-sapply(h, length)
-h
-class(h)
-require(XML)#
-doc   = xmlParse('http://s3.spotcrime.com/cache/rss/newark.xml')#
-#
-nodes = getNodeSet(doc, "//item")#
-src   = ldply(nodes, function(node) xmlSApply(node, xmlValue))
-mydata <- data.frame(cbind(c("xyz","ab","yabc",NA)),c("xyz","xyz","yabc","ab")),c("ab","ab",NA,"yabc")))#
-Coor   <- data.frame(cbind( c("ab","xyz","yabc"),c(31.34,42.15,36.98),c(12.87,13.67,18.56)))
-mydata <- data.frame(cbind(c("xyz","ab","yabc",NA)),c("xyz","xyz","yabc","ab")),c("ab","ab",NA,"yabc")));#
-Coor   <- data.frame(cbind( c("ab","xyz","yabc"),c(31.34,42.15,36.98),c(12.87,13.67,18.56)))
-mydata <- data.frame(cbind(c("xyz","ab","yabc",NA)),c("xyz","xyz","yabc","ab")),c("ab","ab",NA,"yabc")))
-mydata = data.frame(cbind(c("xyz","ab","yabc",NA)),c("xyz","xyz","yabc","ab")),c("ab","ab",NA,"yabc")))
-update.packages()
-raw <- data.frame(WorkerId=c(1,1,1,1,2,2,2,2,3,3,3,3),#
-              Iteration = c(1,2,3,4,1,2,3,4,1,2,3,4))
-raw
-dlply(raw, .(WorkerId))
+xtfrm
+? xtfrm
+? as.quoted
+getAnywhere('as.quoted')
 library(plyr)
-dlply(raw, .(WorkerId))
-lapply( split(raw, raw$WorkerId), function(x) x[-NROW(x),] )
-dlply(raw, .(WorkerId), function(x) x[-NROW(x),])
-dlply(raw, .(WorkerId), function(df) df[-NROW(df),])
-raw
-cast(raw, WorkerId ~ Iteration)
-library(reshape)
-cast(raw, WorkerId ~ Iteration)
-ddply(raw, .(WorkerId), summarize, function(df) df[-NROW(df),])
-ddply(raw, .(WorkerId), function(df) df[-NROW(df),])
+getAnywhere('as.quoted')
+? as.quoted
+as.quoted(a ~ b + log(d))
+as.quote('a')
+as.quoted('a')
+as.quoted('b')
+as.quoted(a)
+? eval.quoted
+head(baseball)
+x = as.quoted(c('id', 'year'))
+x
+eval.quoted(x, baseball)
+y = eval.quoted(x, baseball)
+str(y)
+class(y)
+y2 = Filter(is.numeric, baseball)
+str(y2)
+stopifnot
+? stopifnot
+strip_splits
+? strip_splits
+dlply(mtcars, c('vs', 'am'))
+dlply(mtcars, c('vs', 'am'), strip_splits)
+? strip_splits
+y3 = strip_splits(y2)
+y3
+str(y3)
+quickdf
+? quickdf
+quickdf
+as.data.frame
+make_names
+plyr:::make_names
+plyr:::make_names(tip)
+plyr:::make_names(tips)
+plyr:::make_names(mtcars)
+plyr:::make_names(mtcars, prefix = 'Y')
+mtcars
+rename(mtcars, c('disp' = 'displ'))
+mtcars
+? setNames
+dcf_to_list <- function(filename){#
+    my_dcf  = read.dcf(filename)#
+    my_list = as.list(my_dcf)#
+    setNames(my_list, names(my_dcf))#
+	# names(my_list) = colnames(my_dcf)#
+	# 	return(my_list)#
+}
+h = dcf_to_list('~/Desktop/temp.dcf')
+h
+dcf_to_list <- function(filename){#
+    my_dcf  = read.dcf(filename)#
+    my_list = as.list(my_dcf)#
+    setNames(my_list, colnames(my_dcf))#
+	# names(my_list) = colnames(my_dcf)#
+	# 	return(my_list)#
+}
+h = dcf_to_list('~/Desktop/temp.dcf')
+h
+dcf_to_list <- function(filename){#
+    my_dcf  = read.dcf(filename)#
+    setNames(as.list(my_dcf), colnames(my_dcf))#
+}
+h = dcf_to_list('~/Desktop/temp.dcf')
+h
+old_names = names(mtcars)
+old_names
+? replace
+names(replace)
+r = c('dips' = 'displ', 'drat' = 'drattt')
+names(r)
+r = c(dips = 'displ', drat = 'drattt')
+names9r
+names(r)
+rename(mtcars, c(disp = 'displ'))
+match(old_names, names(r))
+unname(r)
+old_names
+r
+match(old_names, names(r))
+old_names
+r = c(disp = 'displ', drat = 'drattt')
+match(old_names, names(r))
+r[match(old_names, names(r))]
+unname(r[match(old_names, names(r))])
+unname(r)[match(old_names, names(r))]
+? stats
+summarize(baseball, length(unique(team)))
+summarize(baseball, nteams = length(unique(team)))
+eval(substitute(list(nteams = length(unique(team)))), baseball)
+? deparse
+args(lm)
+deparse(args(lm))
+deparse(substitute('d'))
+e = quote(`foo bar`)
+e
+deparse(e)
+deparse(e, backtick = TRUE)
+? match.call
+? match.arg
+ggplot_build
+library(ggpot2)
+library(ggplot2)
+ggplot_build
+? ggplot_build
+cor
+package.skeleton
 update.packages()
-set.seed(1)#
-tdata <- data.frame(a1=rnorm(100, mean=5, sd=2), a2=rep(0:1, length.out=100))#
-tall <- sapply(1:9, function(x) {#
-  d <- split(tdata, tdata$a1 <= x)#
-  sapply(d, function (y) {#
-    1 - max(table(y$a2)/nrow(y))#
-  })#
-})
-tdata
-tall
-tdata
-d1 = split(tdata, tdata$a1 <= 2)
-d1
-table(d2$a2)
-table(d2$`TRUE`a2)
-table(d2$`TRUE`$a2)
-table(d1$`TRUE`$a2)
-tall
-1 - max(table(d1$`FALSE`$a2)/nrow(d2))
-1 - max(table(d1$`FALSE`$a2)/nrow(d1))
-max(table(d1$`FALSE`$a2)
-)
-table(d1$`FALSE`$a2)
-max(table(d1$`FALSE`$a2))/nrow(d1)
-nrow(d1)
-d1
-max(table(d1$`FALSE`$a2))/nrow(d1$`FALSE`)
-1 - max(table(d1$`FALSE`$a2))/nrow(d1$`FALSE`)
-tdata2 = cbind(tdata, 1:9)
-tdata2 = cbind(tdata, c(1:9))
-tdata2 = c(tdata, 1:9)
-tdata2
-tdata2 = data.frame(tdata, 1:9)
-tdata
-setwd('/Users/ramnathvaidyanathan/Desktop/R Projects/World Food')
-library(ggplot2);#
-library(maps);#
-library(maptools);#
-library(RColorBrewer);#
-library(Cairo);#
-library(cluster);#
-gpclibPermit();#
-#
-# DOWNLOAD FILE FROM GOOGLE DOCUMENTS#
-#
-# url = "http://spreadsheets.google.com/pub?key=tdzqfp-_ypDqUNYnJEq8sgg&single=true&gid=0&output=csv"#
-# download.file(data.url, destfile = 'diet.csv');#
-#
-diet	 = read.csv('diet.csv', header = T);#
-#
-#
-# PLOT DISTRIBUTION OF DIFFERENT FOODS#
-#
-plotDensities = function(df, name, color){#
-	#
-	cnum      = which(df$Countries == name);#
-	cols	    = c(1, 4:52);#
-	mdiet	   = melt(df[, cols], id = 'Countries', variable_name = 'var');#
-	mdiet$var = with(mdiet, sub("..kcal.day", "", var));#
-	us 		   = data.frame(value    = unlist(df[cnum, cols]), #
-						   variable = unique(mdiet$variable));#
-					#
-	plot1 = ggplot(mdiet, aes(value)) +#
-		 geom_density() +#
-		 geom_vline(data = us, aes(xintercept = value), color = color) +#
-		 facet_wrap(~variable, scale = 'free') +#
-		 xlab('') +#
-		 opts(tile = name)#
-}#
-#
-plotDensities(diet, "United States of America", 'blue');
-head(diet)
-df = diet
-name = 'United States of America'
-color = 'blue'
-cnum      = which(df$Countries == name);
-cnum
-	cols	    = c(1, 4:52);
-cols
-	mdiet	   = melt(df[, cols], id = 'Countries', variable_name = 'var');
-head(mdiet)
-	mdiet$var = with(mdiet, sub("..kcal.day", "", var));
-head(mdiet)
-us 		   = data.frame(value    = unlist(df[cnum, cols]), #
-						   variable = unique(mdiet$variable));
-ggplot(mdiet, aes(value)) +#
-		 geom_density()
-ggplot(mdiet, aes(value)) +#
-		 geom_density() + facet_wrap(~var, scale = 'free')
-setwd('/Users/ramnathvaidyanathan/Desktop/R Projects/House Prices')
-spcsi = read.csv('SPCSI.csv', skip = 1, stringsAsFactors = F);
-setwd('/Users/ramnathvaidyanathan/Desktop/R Projects/House Prices')
-head(spcsi)
-setwd('/Users/ramnathvaidyanathan/Desktop/R Projects/House Prices')
-names(spcsi)[1] = 'date';
-setwd('/Users/ramnathvaidyanathan/Desktop/R Projects/House Prices')
-names(spcsi) = tolower(names(spcsi));#
-#
-#
-# delete the composite measures#
-spcsi$csxr 	  = NULL;#
-spcsi$spcs20r  = NULL;
-setwd('/Users/ramnathvaidyanathan/Desktop/R Projects/House Prices')
-spcsi.m = melt(spcsi, id = 'date', variable_name = 'abbr', na.rm = T);
-setwd('/Users/ramnathvaidyanathan/Desktop/R Projects/House Prices')
-spcsi_m = melt(spcsi, id = 'date', variable_name = 'abbr', na.rm = T);
-head(spcsi_m)
-? melt
-setwd('/Users/ramnathvaidyanathan/Desktop/R Projects/House Prices')
-# locate the value column and rename it to 'spcsi'#
-valcol = which(names(spcsi_m) == "value");#
-names(spcsi_m)[valcol] = 'spcsi';
-setwd('/Users/ramnathvaidyanathan/Desktop/R Projects/House Prices')
-spcsi_m$date = paste("15", spcsi_m$date, sep = " ");#
-spcsi_m$date = with(spcsi_m, as.Date(date, "%d %B %Y"));
-setwd('/Users/ramnathvaidyanathan/Desktop/R Projects/House Prices')
-qplot(date, spcsi, data = spcsi_m, geom = 'line', colour = abbr);
-setwd('/Users/ramnathvaidyanathan/Desktop/R Projects/House Prices')
-abbr      = read.csv('abbr-lookup.csv');#
-abbr$abbr = tolower(abbr$abbr)
-source('lib/utilities.R')
-source('lib/merge_poly_df_v2.R')
-soure('lib/find_fill_breaks.R')
-source('lib/find_fill_breaks.R')
-source('lib/choropleth.R')
-setwd('/Users/ramnathvaidyanathan/Desktop/R Projects/Chicago Mayoral Elections/2_code')
-london <- readShapeSpatial('1_data/london/maps/london_sport.shp');
+file.path(R.home(), "doc/KEYWORDS")
+readLines(file.path(R.home(), "doc/KEYWORDS"))
+cat(readLines(file.path(R.home(), "doc/KEYWORDS")))
+library(foreign)
+df = read.dta('~/Downloads/foiacm.dta')
+df = read.fwf('~/Downloads/foiacm.dta', c(9,90,38,34,34,18,2,5,1,1,3,1,1,38,9))
+df = read.fwf('~/Downloads/foiacm.dta', c(9,90,38,34,34,18,2,5,1,1,3,1,1,38,9), sep = "\n")
+dim(df)
+head(df)
+str(df)
+df = read.fwf('~/Downloads/foiacm.dta', c(9,90,38,34,34,18,2,5,1,1,3,1,1,38,9), sep = "")
+df = read.fwf('~/Downloads/foiacm.dta', c(9,90,38,34,34,18,2,5,1,1,3,1,1,38,9), sep = " ")
+? read.fwf
+df = read.fwf('~/Downloads/foiacm.dta', c(9,90,38,34,34,18,2,5,1,1,3,1,1,38,9))
+? read.fwf
+df = read.fwf('~/Downloads/foiacm.dta', c(9,90,38,34,34,18,2,5,1,1,3,1,1,38,9), skip = 2)
+df = read.fwf('~/Downloads/foiacm.dta', c(9,90,38,34,34,18,2,5,1,1,3,1,1,38,9), sep = "")
+df = read.fwf('~/Downloads/foiacm.dta', c(9,90,38,34,34,18,2,5,1,1,3,1,1,38,9), sep = " \t")
+df = read.fwf('~/Downloads/foiacm.dta', c(9,90,38,34,34,18,2,5,1,1,3,1,1,38,9), sep = "\n")
+dim(df)
+df[1]
+df = read.fwf('~/Downloads/foiacm.dta', c(99,38,34,34,18,2,5,1,1,3,1,1,38,9))
+df = read.fwf('~/Downloads/foiacm.dta', c(9,90,38,34,34,18,2,5,1,1,3,1,1,38,9), strip.white = TRUE)
+df = read.fwf('~/Downloads/foiacm.dta', c(9,90,38,34,34,18,2,5,1,1,3,1,1,38,9), comment.char = "")
+dim(df)
+head(df)
+? dir
+setwd('~/Desktop/R Projects/Chicago Mayoral Elections')
+ls()
 dir()
-london <- readShapeSpatial('1_data/london/maps/london_sport.shp');
-choro1_gg = choropleth(.poly = london, #
-  id1 = 'name', field = 'Partic_Per',#
-  .title    = 'London Sport Participation',#
-  .legtitle = 'Partic_Per', .ggplot = T,#
-  colpal   = 'Blues', style = 'fixed',#
-  fixedBreaks   = seq(0, 30, by = 5)) +#
-  opts(legend.position = c(0.85, 0.25));
-choro1_gg
-? arrange
-source('~/Desktop/R Projects/Chicago Mayoral Elections/lib/utilities.R')
-base_dir = '~/Desktop/R Projects/Chicago Mayoral Elections/'
-file.path
-? file.path
-file.path(base_dir, 'lib/utilities.R')
-base_dir = '~/Desktop/R Projects/Chicago Mayoral Elections/'#
-source(file.path(base_dir, 'lib/utilities.R'))
+log <- system('git log -n 1', intern = TRUE)
+log
+? system
+log[1]
+log[2]
+log[3]
+gitlog <- function(){#
+	log <- system("git log -n 1", intern=TRUE) #
+	commitID <- log[1]#
+	author <- log[2]#
+	date <- log[3]#
+	short_comment <- log[5]#
+	commitID <- strsplit(commitID, " ")[[1]][2]   # Hashtag without the word "commit" before it#
+  shortID <- gsub("(.{7}).+", "\\1", commitID)#
+# Consider the shortened ID#
+list(commitID = commitID, author=author, date=date, short_comment=short_comment, shortID=shortID)#
+}
+h = gitlog()
+h
+repository <-gsub(".*/(.*)/.*$", "\\1", getwd())
+repository
+getwd()
+guess_gitopts <- function(user="cboettig", repository=NULL, dir=NULL){#
+  if(is.null(repository)) ## guesses is one directory up#
+    repository <-gsub(".*/(.*)/.*$", "\\1", getwd())#
+  if(is.null(dir)) ## guess the current directory#
+    dir <-gsub(".*/(.*)$", "\\1", getwd())#
+  list(user="cboettig", repository=repository, dir=dir)#
+}
+guess_gitopts()
+log
+str_split_fixed(log, "[:\\s+]", 2)
+library(stringr)
+str_split_fixed(log, "[:\\s+]", 2)
+str_split_fixed(log, "[:|\\s+]", 2)
+str_split_fixed(log, "[\\s+]", 2)
+str_split_fixed(log, "[\\s]", 2)
+strsplit(log[1], " ")
+str_split_fixed(log, "(:|\\s+)", 2)
+strsplit(log, "(:|\\s+)", 2)
+? strsplit
+strsplit(log, ":")
+log <- str_split_fixed(log, "(:|\\s+)", 2)
+log
+details <- as.list(log[,2])
+details
+details <- as.list(str_trim(log[,2]))
+details
+names(details) <- c(log[1:4], 'comment')
+details
+get_git_log <- function(){#
+	require(stringr)#
+	log <- system("git log -n 1", intern = TRUE)#
+	log <- str_split_fixed(log, "(:|\\s+)", 2)#
+	details <- as.list(str_trim(log[-4,2]))#
+	names(details) <- c(log[1:3], 'comment')#
+	return(details)	#
+}
+get_git_log()
+gitlog()
+details
+as.Date(details$Date)
+as.POSIXct(details$Date)
+today()
+library(lubridate)
+today()
+now()
+get_git_log <- function(){#
+	require(stringr)#
+	log <- system("git log -n 1", intern = TRUE)#
+	log <- str_split_fixed(log, "(:|\\s+)", 2)#
+	short_id <- str_extract(log[1,2], 1, 7)#
+	details <- as.list(str_trim(log[-4,2]), short_id)#
+	names(details) <- c(log[1:3], 'comment', 'short_id')#
+	return(details)	#
+}
+get_git_log()
+? str_extract
+? str_sub
+get_git_log <- function(){#
+	require(stringr)#
+	log <- system("git log -n 1", intern = TRUE)#
+	log <- str_split_fixed(log, "(:|\\s+)", 2)#
+	short_id <- str_sub(log[1,2], 1, 7)#
+	details <- as.list(str_trim(log[-4,2]), short_id)#
+	names(details) <- c(log[1:3], 'comment', 'short_id')#
+	return(details)	#
+}
+get_git_log()
+log <- system("git log -n 1", intern = TRUE)#
+	log <- str_split_fixed(log, "(:|\\s+)", 2)#
+	short_id <- str_sub(log[1,2], 1, 7)#
+	details <- as.list(str_trim(log[-4,2]), short_id)
+details
+	details <- c(str_trim(log[-4,2]), short_id)
+details
+gitlog()
+system("cat .gitconfig", intern = TRUE)
+x = system("cat .gitconfig", intern = TRUE)
+x = system('git config --list', intern = TRUE)
+x
 dir()
-dir('1_data')
-dir('1_data/london')
-dir('1_data/london/maps')
-readShapeZip
-london = readShapeSpatial(base_dir, '1_data/london/maps/london_sport.shp'))
-london = readShapeSpatial(base_dir, '1_data/london/maps/london_sport.shp')
-london = readShapeSpatial(file.path(base_dir, '1_data/london/maps/london_sport.shp'))
-dir('1_data')
-dir('1_data/london')
-dir('1_data/london/maps')
-options(prompt = " ", continue = " ");#
-# source('http://dl.dropbox.com/u/1161356/utilities.R');#
-base_dir = '~/Desktop/R Projects/Chicago Mayoral Elections/'#
-source(file.path(base_dir, 'lib/utilities.R'))
+dir(.git)
+? dir
+dir(all = TRUE)
+list.files('.git')
+list.files('.')
+list.files('..')
+path.expand('.')
+path.expand('..')
+list.files('..')
+system('git config --list')
+git_opts = system('git config --list', intern = TRUE)
+git_opts
+guess_gitopts <- function(user="cboettig", repository=NULL, dir=NULL){#
+  if(is.null(repository)) ## guesses is one directory up#
+    repository <-gsub(".*/(.*)/.*$", "\\1", getwd())#
+  if(is.null(dir)) ## guess the current directory#
+    dir <-gsub(".*/(.*)$", "\\1", getwd())#
+  list(user="cboettig", repository=repository, dir=dir)#
+}
+guess_gitopts(user = NULL)
+git_url <- function(scriptname, user="cboettig", repository=NULL, dir=NULL,#
+                    raw=FALSE, diff=FALSE){#
+#
+  if(scriptname=="") # if empty scriptname, we must have wanted a commit diff#
+    diff<-TRUE #
+  #
+  if(is.null(repository)) ## guesses is one directory up#
+    repository <-gsub(".*/(.*)/.*$", "\\1", getwd())#
+  if(is.null(dir)) ## guess the current directory#
+    dir <-gsub(".*/(.*)$", "\\1", getwd())#
+	log <- gitlog()#
+	id <- gsub("\\s", "/", log$commitID)#
+  domain <- "https://github.com"#
+#
+  if(raw)#
+    out <- paste("https://raw.github.com", user, repository, id, dir, scriptname, sep="/") #
+  else if(diff)#
+    out <- paste(domain, user, repository, "commit", id, sep="/") #
+  else #
+    out <- paste(domain, user, repository, "blob", id, dir, scriptname, sep
+}
+git_url <- function(scriptname, user="cboettig", repository=NULL, dir=NULL,#
+                    raw=FALSE, diff=FALSE){#
+#
+  if(scriptname=="") # if empty scriptname, we must have wanted a commit diff#
+    diff<-TRUE #
+  #
+  if(is.null(repository)) ## guesses is one directory up#
+    repository <-gsub(".*/(.*)/.*$", "\\1", getwd())#
+  if(is.null(dir)) ## guess the current directory#
+    dir <-gsub(".*/(.*)$", "\\1", getwd())#
+	log <- gitlog()#
+	id <- gsub("\\s", "/", log$commitID)#
+  domain <- "https://github.com"#
+#
+  if(raw)#
+    out <- paste("https://raw.github.com", user, repository, id, dir, scriptname, sep="/") #
+  else if(diff)#
+    out <- paste(domain, user, repository, "commit", id, sep="/") #
+  else #
+    out <- paste(domain, user, repository, "blob", id, dir, scriptname, sep)}
+git_url()
+dir()
+dir('2_code')
+git_url('2_code/archive.R')
+git_url <- function(scriptname, user="cboettig", repository=NULL, dir=NULL,#
+                    raw=FALSE, diff=FALSE){#
+#
+  if(scriptname=="") # if empty scriptname, we must have wanted a commit diff#
+    diff<-TRUE #
+  #
+  if(is.null(repository)) ## guesses is one directory up#
+    repository <-gsub(".*/(.*)/.*$", "\\1", getwd())#
+  if(is.null(dir)) ## guess the current directory#
+    dir <-gsub(".*/(.*)$", "\\1", getwd())#
+	log <- gitlog()#
+	id <- gsub("\\s", "/", log$commitID)#
+  domain <- "https://github.com"#
+#
+  if(raw)#
+    out <- paste("https://raw.github.com", user, repository, id, dir, scriptname, sep="/") #
+  else if(diff)#
+    out <- paste(domain, user, repository, "commit", id, sep="/") #
+  else #
+    out <- paste(domain, user, repository, "blob", id, dir, scriptname, sep = "/")}
+git_url('2_code/archive.R')
+y = git_url('2_code/archive.R')
+y
+x = system('curl -i https://api.github.com')
+x = system('curl -i https://api.github.com', intern = TRUE)
+:--     0>
+x
+x = system('curl -i https://api.github.com', intern = TRUE)
+--:--     0>
+x
+library(RCurl)
+? RCurl
+? curl
+library(help = 'RCurl')
+x = getURL('https://api.github.com')
+x
+? getURL
+getCurlHandle()
+x = getURL('https://api.github.com', curl = getCurlHandle())
+x
+myCsv <- getURL("https://gist.github.com/raw/667867/c47ec2d72801cfd84c6320e1fe37055ffe600c87/test.csv")#
+WhatJDwants <- read.csv(textConnection(myCsv))
+head(WhatJDwants)
+whatJDwants
+head(myCsv)
+x = system('curl -u "ramnathv:iluvSangeetha" https://api.github.com')
+x = system('curl -u "ramnathv:iluvsangeetha" https://api.github.com')
+x
+update.packages()
+update.packages()
+system('uname -n', intern = TRUE)
+library(RFlickr)
+install.package('RFlickr', repos = 'http://www.omegahat.org')
+install.packages('RFlickr', repos = 'http://www.omegahat.org')
+install.packages('RFlickr', repos = 'http://www.omegahat.org', type = 'source')
+install.packages(file.choose(), repos = NULL, contribURL = NULL, type = 'source')
+library(Rflickr)
+library(help = 'Rflickr')
+tok = authenticate(getOption('flickr_api_key'))
+? authenticate
