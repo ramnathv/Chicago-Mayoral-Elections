@@ -8,6 +8,14 @@ There are three ways to examine a distribution
 2. **Compute a Statistic**: While graphs are a powerful way to get started, there is a subjective element to its interpretation. Here is where a numerical summary measure of the data comes in handy. It is usually referred to as a **statistic**.
 3. **Fit a Model**: 
 
+**Outliers**: An _outlier_ is a data point that stands out from the rest of the data. There are two kinds of outliers
+
+1. `Potential Outlier` is any observation that lies more than *1.5 x IQR* away from the quartiles.
+2. `Suspected Outlier`
+                                                                        
+                                                  
+                              
+
 ### Plot Graphs
 
 <div markdown = "0"> $\alpha$ </div>
