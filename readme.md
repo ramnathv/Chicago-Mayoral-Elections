@@ -4,6 +4,8 @@
 
 ### Plot Graphs
 
+$\alpha$
+
 ### Compute Statistic
 
 ### Fit Density
