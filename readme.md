@@ -4,7 +4,7 @@
 
 ### Plot Graphs
 
-$\alpha$
+<div markdown = "0"> $\alpha$ </div>
 
 ### Compute Statistic
 
