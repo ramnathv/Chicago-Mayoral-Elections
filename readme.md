@@ -1,6 +1,5 @@
 
-
-## Examining Distributions
+## 1. Examining Distributions
 
 ### Plot Graphs
 
