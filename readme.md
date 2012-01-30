@@ -1,13 +1,9 @@
-Choropleths with R
-==================
 
-This repository contains data and code accompanying my blog tutorial on how to create choropleth maps in R.
 
-Step 1
--------
+## Examining Distributions
 
-First, we merge shapefiles with data
+### Plot Graphs
 
-Step 2
--------
+### Compute Statistic
 
+### Fit Density
