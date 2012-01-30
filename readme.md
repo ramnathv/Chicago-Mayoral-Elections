@@ -10,3 +10,5 @@ First, we merge shapefiles with data
 
 Step 2
 -------
+
+![Choropleth Map of Winners](3_figures/winner4.png) 
