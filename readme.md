@@ -1,5 +1,6 @@
+# Statistics: Learning from Data
 
-## 1. Examining Distributions
+## Examining Distributions
 
 ### Plot Graphs
 
