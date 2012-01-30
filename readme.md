@@ -22,4 +22,9 @@ There are three ways to examine a distribution
 
 ### Compute Statistic
 
+```r
+library(ggplot2) 
+qplot(tip, data = tips)
+```
+
 ### Fit Density
