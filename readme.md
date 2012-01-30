@@ -14,14 +14,13 @@ There are three ways to examine a distribution
 2. `Suspected Outlier`
 
 <div markdown = "0">\[ \alpha \]</div>
-<img src="http://placehold.it/350x150">
+("http://placehold.it/350x150")
                                                                         
                                                   
                               
 
 ### Plot Graphs
 
-<div markdown = "0"> $\alpha$ </div>
 
 ### Compute Statistic
 
