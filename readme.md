@@ -12,6 +12,8 @@ There are three ways to examine a distribution
 
 1. `Potential Outlier` is any observation that lies more than *1.5 x IQR* away from the quartiles.
 2. `Suspected Outlier`
+
+<div markdown = "0">\[ \alpha \]</div>
                                                                         
                                                   
                               
