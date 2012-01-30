@@ -11,4 +11,4 @@ First, we merge shapefiles with data
 Step 2
 -------
 
-![Choropleth Map of Winners](3_figures/winner4.png) 
+![Choropleth Map of Winners](https://github.com/ramnathv/Chicago-Mayoral-Elections/blob/master/3_figures/winner4.png?raw=true) 
