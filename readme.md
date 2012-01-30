@@ -14,6 +14,7 @@ There are three ways to examine a distribution
 2. `Suspected Outlier`
 
 <div markdown = "0">\[ \alpha \]</div>
+<img src="http://placehold.it/350x150">
                                                                         
                                                   
                               
