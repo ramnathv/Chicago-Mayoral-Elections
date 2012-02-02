@@ -14,6 +14,7 @@ There are three ways to examine a distribution
 2. `Suspected Outlier`
 
 <div markdown = "0">\[ \alpha \]</div>
+<script type="math/tex">E = mc^2</script>
 ![image](http://placehold.it/600x400)
                                                                         
                                                   
