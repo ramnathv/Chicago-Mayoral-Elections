@@ -1,4 +1,3 @@
-
 The [object](objects) `knit_patterns` manages patterns in **knitr**. For example, we can use `knit_patterns$get()` to check the current pattern list. A pattern list includes the following components:
 
 - `chunk.begin`: the pattern for the beginning of a code chunk; it must contain a group defined by `()`, which will be used to extract chunk options
@@ -21,15 +20,15 @@ There are several built-in pattern lists in **knitr** which are stored in `opts_
 
 
 
-{% highlight r %}
+```r
 library(knitr)
 apats = opts_knit$get("all.patterns")  # a list of all built-in patterns
 str(apats)
-{% endhighlight %}
+```
 
 
 
-{% highlight text %}
+```text
 ## List of 4
 ##  $ rnw :List of 8
 ##   ..$ chunk.begin   : chr "^<<(.*)>>="
@@ -58,7 +57,7 @@ str(apats)
 ##   ..$ global.options: chr "<!--\\s*roptions\\s*([^>]*)\\s*-->"
 ##   ..$ header.begin  : chr "\n*\\s*<head>"
 ##   ..$ ref.label     : chr "^## @knitr (.*)$"
-{% endhighlight %}
+```
 
 
 Depending on the extension of the input filename, **knitr** will automatically choose a pattern list from the above lists, e.g. `file.Rnw` will use `apats$rnw`, and `file.html` will use `apats$html`, etc.
