@@ -10,6 +10,8 @@ qplot(hp, mpg, data = mtcars) + geom_smooth()
 
 ## Section 2
 
+$\alpha$
+
 ## Section 3
 
 ## Section 4
