@@ -6,11 +6,11 @@
       DocumentUp.document({
         repo: "ramnathv/Chicago-Mayoral-Elections",
         name: "Test Page",
-        afterRender: function(){
+        afterRender: $.domReady(function(){
           s = document.createElement("script");
           s.src = "http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
           document.head[0].appendChild(s);
-        }
+        });
       });
     </script>
   </head>
